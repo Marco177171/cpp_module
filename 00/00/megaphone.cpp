@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 18:36:00 by masebast          #+#    #+#             */
-/*   Updated: 2022/12/07 18:53:06 by masebast         ###   ########.fr       */
+/*   Updated: 2022/12/07 19:29:09 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ int main(int argc, char *argv[])
 		std::cout << str << std::endl;
 	}
 	else
-		std::cout << "FEEDBACK" << std::endl;
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 	return (0);
 }
