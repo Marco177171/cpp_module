@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 18:36:00 by masebast          #+#    #+#             */
-/*   Updated: 2022/12/07 19:29:09 by masebast         ###   ########.fr       */
+/*   Updated: 2022/12/07 19:30:10 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 
 	index = -1;
 	str = argv[1];
-	if (argc == 2)
+	if (argc >= 2)
 	{
 		while (str[++index])
 			toupper(str[index]);
