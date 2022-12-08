@@ -32,18 +32,28 @@
 
 int main(int argc, char *argv[])
 {
-	int index;
+	int arg_index;
+	int str_index;
 	char *str;
 
-	index = -1;
-	str = argv[1];
-	if (argc >= 2)
+	arg_index = 0;
+	if (argv[1])
 	{
-		while (str[++index])
-			toupper(str[index]);
-		std::cout << str << std::endl;
+		while (argv[++arg_index])
+		{
+			str = argv[arg_index];
+			str_index = -1;
+			while (str[++str_index])
+			{
+				if (str[str_index] >= 97 && str[str_index] <= 122)
+					str[str_index] -= 32;
+			}
+			std::cout << str;
+		}
+		std::cout << std::endl;
 	}
 	else
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 	return (0);
 }
+
