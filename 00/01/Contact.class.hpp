@@ -10,3 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CONTACT_CLASS_HPP
+# define CONTACT_CLASS_HPP
+# include <string>
+
+class Contact
+{
+	public:
+		Contact(void);
+		virtual 
+}
+
+#endif
+

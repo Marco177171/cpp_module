@@ -12,24 +12,6 @@
 
 #include <iostream>
 
-// namespace birillo
-// {
-//     printf();
-//     std::string ft_answer()
-//     {
-//         printf("");
-//     }
-// }
-
-// namespace palla
-// {
-//     printf();
-// }
-
-// palla::printf()
-
-// std::cout << "ciao" << std::endl;
-
 int main(int argc, char *argv[])
 {
 	int arg_index;
