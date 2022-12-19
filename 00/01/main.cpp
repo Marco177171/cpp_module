@@ -15,11 +15,11 @@
 
 void list_commands()
 {
-	st::cout << "Is there a typo? Pay attention to spaces and non-printable characters" << endl
-	st::cout << "COMMANDS:" << endl
-	st::cout << "ADD: add a contact to phonebook" << endl
-	st::cout << "SEARCH: search for a contact in the phonebook" << endl
-	st::cout << "EXIT: quit the program" << endl
+	std::cout << "Is there a typo? Pay attention to spaces and non-printable characters\n";
+	std::cout << "COMMANDS:\n";
+	std::cout << "ADD: add a contact to phonebook\n";
+	std::cout << "SEARCH: search for a contact in the phonebook\n";
+	std::cout << "EXIT: quit the program\n";
 }
 
 int main()

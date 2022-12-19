@@ -19,10 +19,10 @@ class Phonebook
 {
 	private:
 		Contact	_contacts[8];
-		int		_older;
+		int _older;
 	public:
 		Phonebook(void);
-		virtual Phonebook(void);
+		virtual ~Phonebook(void);
 		Phonebook(Phonebook& next);
 		Phonebook& operator=(Phonebook& next);
 		void add_contact(void);
