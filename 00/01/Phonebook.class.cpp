@@ -30,10 +30,11 @@ void Phonebook::display(void)
 	int i;
 	int j;
 
+	i = 0;
 	while (i < 8)
 	{
 		j = -1;
-		while (j < 3)
+		while (j < 5)
 		{
 			if (j == -1 && _contacts[i].exists())
 				std::cout << _contacts[i].getIndex() << " | ";

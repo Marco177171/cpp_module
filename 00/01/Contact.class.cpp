@@ -52,7 +52,7 @@ bool Contact::insertInfo(int index)
 
 	info_index = FirstName;
 	this->_index = index;
-	while (info_index < DarkestSecret)
+	while (info_index <= DarkestSecret)
 	{
 		std::cout << "\t# " << Contact::_field_name[info_index] << ": ";
 		std::getline(std::cin, this->_info[info_index]);
