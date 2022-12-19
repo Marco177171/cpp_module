@@ -37,11 +37,12 @@ void Contact::clean_contacts(int index)
 	int word_index;
 	int char_index;
 
+	word_index = 0;
 	while (word_index < 5)
 	{
 		char_index = 0;
-		while (this->_info[word_index][char_index++])
-			_info[word_index][char_index] = ' ';
+		while (this->_info[word_index][char_index])
+			this->_info[word_index][char_index++] = ' ';
 		word_index++;
 	}
 }
