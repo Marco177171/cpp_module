@@ -26,7 +26,7 @@ class Contact
 		bool exists();
 		std::string getPortion(int index);
 		int getIndex(void);
-		void clean_contacts(int index);
+		void clean_contacts();
 	private:
 		static std::string _field_name[5];
 		std::string _info[5];

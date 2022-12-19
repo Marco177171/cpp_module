@@ -32,7 +32,7 @@ std::string Contact::_field_name[5] = {
 	"Darkest Secret"
 };
 
-void Contact::clean_contacts(int index)
+void Contact::clean_contacts()
 {
 	int word_index;
 	int char_index;
@@ -59,13 +59,13 @@ bool Contact::insertInfo(int index)
 		std::getline(std::cin, this->_info[info_index]);
 		if (this->_info[info_index].length() == 0)
 		{
-			this->clean_contacts(info_index);
+			this->clean_contacts();
 			std::cout << "No empty fields permitted. Aborting\n";
 			return (false);
 		}
 		else if (info_index == PhoneNumber && !isNumber(this->_info[info_index]))
 		{
-			this->clean_contacts(info_index);
+			this->clean_contacts();
 			std::cout << "Error: Phone number is not numeric. Aborting\n";
 			return (false);
 		}
@@ -78,9 +78,7 @@ bool Contact::insertInfo(int index)
 std::string Contact::getPortion(int index)
 {
 	std::string portion;
-	int spaces;
 
-	spaces = 0;
 	if (this->_info[index].length() > 10)
 	{
 		portion = this->_info[index].substr(0, 9);
