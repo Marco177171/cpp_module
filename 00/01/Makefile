@@ -1,8 +1,10 @@
 NAME = phonebook
-SRC = main.cpp Contact.class.cpp Contact.class.hpp Phonebook.class.cpp Phonebook.class.hpp
+SRC = main.cpp Contact.class.cpp Phonebook.class.cpp
 
 $(NAME):
 	g++ $(SRC) -o $(NAME)
+
+all: $(NAME)
 
 clean:
 	rm -rf *.o *.gch
@@ -10,5 +12,4 @@ clean:
 fclean: clean
 	rm -rf $(NAME)
 
-re: fclean
-	$(NAME)
+re: fclean all
