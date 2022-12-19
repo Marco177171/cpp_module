@@ -1,8 +1,9 @@
 NAME = accounts
+FLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = Account.cpp tests.cpp
 
 $(NAME):
-	g++ $(SRCS) -o $(NAME)
+	g++ $(FLAGS) $(SRCS) -o $(NAME)
 
 all: $(NAME)
 

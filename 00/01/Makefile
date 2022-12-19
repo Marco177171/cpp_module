@@ -1,8 +1,9 @@
 NAME = phonebook
+FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp Contact.class.cpp Phonebook.class.cpp
 
 $(NAME):
-	g++ $(SRC) -o $(NAME)
+	g++ $(FLAGS) $(SRC) -o $(NAME)
 
 all: $(NAME)
 
