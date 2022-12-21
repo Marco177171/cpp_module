@@ -1,8 +1,9 @@
 NAME = BraiiiiiiinnnzzzZ
-SCRS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 FLAGS = -Wall -Wextra -Werror
 
-$(NAME): g++ $(FLAGS) $(SRCS) -o $(NAME)
+$(NAME):
+	c++ $(FLAGS) $(SRCS) -o $(NAME)
 
 all: $(NAME)
 

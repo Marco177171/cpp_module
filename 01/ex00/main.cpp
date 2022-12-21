@@ -7,7 +7,7 @@ int main(void)
 	std::cout << std::endl << "Now, let's summon a Zombie from the heap" << std::endl;
 	Zombie *z2 = newZombie("Heap Zombie");
 	std::cout << "let's call a zombie from the main file" << std::endl;
-	z2->annouce();
+	z2->announce();
 	std::cout << std::endl << "Calling a zombie on the stack...he will re-die soon" << std::endl;
 	randomChump("Stack Zombie");
 	std::cout << std::endl << "see you!" << std::endl;
