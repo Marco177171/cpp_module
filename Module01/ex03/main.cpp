@@ -1,7 +1,6 @@
 #include "HumanA.hpp"
-#include "WeaponA.hpp"
 #include "HumanB.hpp"
-#include "WeaponB.hpp"
+#include "Weapon.hpp"
 #include <iostream>
 
 int main()
