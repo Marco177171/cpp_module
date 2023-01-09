@@ -1,4 +1,4 @@
-#include "Karen.hpp"
+#include "Harl.hpp"
 
 int ft_error(std::string error)
 {
@@ -9,14 +9,14 @@ int ft_error(std::string error)
 int main(int argc, char *argv[])
 {
 	std::string level;
-	Karen *karen = new Karen();
+	Harl *harl = new Harl();
 
 	if (argc != 2)
-		return (ft_error("argument error. Appropriate syntax: ./Karen [level]"));
+		return (ft_error("argument error. Appropriate syntax: ./Harl [level]"));
 	level = argv[1];
 	if (level != "debug" && level != "info" && level != "warning" && level != "error")
 		return (ft_error("possible arguments: debug, info, warning, error"));
-	karen->complain(level);
-	delete karen;
+	harl->complain(level);
+	delete harl;
 	return (0);
 }
