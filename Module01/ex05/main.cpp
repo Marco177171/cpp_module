@@ -9,15 +9,14 @@ int ft_error(std::string error)
 int main(int argc, char *argv[])
 {
 	std::string level;
-	Karen *karen;
+	Karen *karen = new Karen();
 
 	if (argc != 2)
 		return (ft_error("argument error. Appropriate syntax: ./Karen [level]"));
 	level = argv[1];
 	if (level != "debug" && level != "info" && level != "warning" && level != "error")
 		return (ft_error("possible arguments: debug, info, warning, error"));
-	karen::Karen();
-	karen::complain(level);
-	karen::~Karen();
+	karen->complain(level);
+	delete karen;
 	return (0);
 }
