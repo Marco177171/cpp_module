@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Harl.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/09 16:58:18 by masebast          #+#    #+#             */
+/*   Updated: 2023/01/09 16:58:20 by masebast         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Harl.hpp"
 
 Harl::Harl(void)
@@ -32,5 +44,12 @@ void Harl::error(void)
 
 void Harl::complain(std::string level)
 {
-	
+	if (level.compare("debug"))
+		this->debug();
+	else if (level.compare("info"))
+		this->info();
+	else if (level.compare("warning"))
+		this->warning();
+	else if (level.compare("error"))
+		this->error();
 }
