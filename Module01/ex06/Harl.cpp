@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 16:58:18 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/09 16:58:20 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/09 17:49:07 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,12 @@ void Harl::error(void)
 
 void Harl::complain(std::string level)
 {
-	if (level.compare("debug"))
+	if (level.compare("debug") == 0)
 		this->debug();
-	else if (level.compare("info"))
+	else if (level.compare("info") == 0)
 		this->info();
-	else if (level.compare("warning"))
+	else if (level.compare("warning") == 0)
 		this->warning();
-	else if (level.compare("error"))
+	else if (level.compare("error") == 0)
 		this->error();
 }
