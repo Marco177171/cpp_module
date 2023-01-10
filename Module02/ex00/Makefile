@@ -1,7 +1,7 @@
 NAME = Fixed
 FLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = main.cpp Fixed.cpp
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRCS:.cpp=.o)
 
 $(NAME):
 	c++ $(FLAGS) $(SRCS) -o $(NAME)
