@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:27:07 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/17 17:46:36 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/17 18:29:18 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ Fixed::Fixed(Fixed const &source)
 
 Fixed &Fixed::operator=(const Fixed &source)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
 	this->_fixedPoint = source._fixedPoint;
+	std::cout << "Copy assignment operator called" << std::endl;
 	return (*this);
 }
 
