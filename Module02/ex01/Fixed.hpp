@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:36:03 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/17 16:22:10 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/17 17:43:15 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,13 @@ class Fixed {
 		Fixed();
 		Fixed(const int intParameter);
 		Fixed(const float floatParameter);
+		Fixed(Fixed const &source);
 		Fixed &operator=(Fixed const &source);
 		~Fixed();
 		int toInt(void) const;
 		float toFloat(void) const;
 	private:
-		int _Param;
+		int _fixedPoint;
 		static const int _fractionalBitsValue = 8;
 };
 
