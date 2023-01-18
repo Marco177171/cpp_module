@@ -6,20 +6,15 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:09:19 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/18 16:00:22 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/18 16:33:53 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-void message(std::string str)
-{
-	std::cout << str << std::endl;
-}
-
 Fixed::Fixed()
 {
-	message("Default constructor called");
+	this->_fixedNumber = 0;
 }
 
 Fixed::Fixed(int integer)
@@ -41,14 +36,11 @@ Fixed::Fixed(Fixed const &source)
 Fixed &Fixed::operator=(Fixed const &source)
 {
 	this->_fixedNumber = source._fixedNumber;
-	message("Copy assignment operator called");
 	return (*this);
 }
 
 Fixed::~Fixed()
-{
-	message("Destructor called");
-}
+{}
 
 bool Fixed::operator>(Fixed const &other) const
 {
@@ -116,13 +108,13 @@ Fixed Fixed::operator/(Fixed const &operand)
 	return (result);
 }
 
-Fixed Fixed::operator++()
+Fixed Fixed::operator++(void)
 {
 	this->_fixedNumber++;
 	return (*this);
 }
 
-Fixed Fixed::operator--()
+Fixed Fixed::operator--(void)
 {
 	this->_fixedNumber--;
 	return (*this);
@@ -186,4 +178,10 @@ Fixed const &Fixed::max(Fixed const &f1, Fixed const &f2)
 	if (f1 < f2)
 		return (f2);
 	return (f1);
+}
+
+std::ostream &operator<<(std::ostream &output, Fixed const &input)
+{
+	output << input.toFloat();
+	return (output);
 }

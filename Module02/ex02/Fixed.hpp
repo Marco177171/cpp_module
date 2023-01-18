@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:51:11 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/18 16:01:08 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/18 16:42:25 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ class Fixed {
 		Fixed operator-(Fixed const &operand);
 		Fixed operator*(Fixed const &operand);
 		Fixed operator/(Fixed const &operand);
-		Fixed operator++();
-		Fixed operator--();
+		Fixed operator++(void);
+		Fixed operator--(void);
 		Fixed operator++(int increase);
 		Fixed operator--(int decrease);
 		int getRawBits(void) const;
