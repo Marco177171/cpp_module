@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:51:11 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/17 18:39:52 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/18 16:01:08 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,35 @@ class Fixed {
 		Fixed(int integer);
 		Fixed(float floating);
 		Fixed(Fixed const &source);
+		Fixed &operator=(Fixed const &source);
 		~Fixed();
-		
+		bool operator>(Fixed const &other) const;
+		bool operator<(Fixed const &other) const;
+		bool operator>=(Fixed const &other) const;
+		bool operator<=(Fixed const &other) const;
+		bool operator==(Fixed const &other) const;
+		bool operator!=(Fixed const &other) const;
+		Fixed operator+(Fixed const &operand);
+		Fixed operator-(Fixed const &operand);
+		Fixed operator*(Fixed const &operand);
+		Fixed operator/(Fixed const &operand);
+		Fixed operator++();
+		Fixed operator--();
+		Fixed operator++(int increase);
+		Fixed operator--(int decrease);
+		int getRawBits(void) const;
+		void setRawBits(int const raw);
+		float toFloat(void) const;
+		int toInt(void) const;
+		static Fixed &min(Fixed &f1, Fixed &f2);
+		static Fixed const &min(Fixed const &f1, Fixed const &f2);
+		static Fixed &max(Fixed &f1, Fixed &f2);
+		static Fixed const &max(Fixed const &f1, Fixed const &f2);
 	private:
 		int _fixedNumber;
 		static const int _fractionalBitsValue = 8;
 };
+
+std::ostream &operator<<(std::ostream &output, Fixed const &input);
 
 #endif
