@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:09:19 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/18 16:33:53 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/18 17:31:21 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,21 +120,27 @@ Fixed Fixed::operator--(void)
 	return (*this);
 }
 
-Fixed Fixed::operator++(int increase)
+Fixed Fixed::operator++(int)
 {
-	this->_fixedNumber = this->_fixedNumber + increase;
-	return (*this);
+	Fixed result;
+
+	result = *this;
+	++*this;
+	return (result);
 }
 
-Fixed Fixed::operator--(int decrease)
+Fixed Fixed::operator--(int)
 {
-	this->_fixedNumber = this->_fixedNumber - decrease;
-	return (*this);
+	Fixed result;
+
+	result = *this;
+	--*this;
+	return (result);
 }
 
 int Fixed::getRawBits(void) const
 {
-	return (this->_fractionalBitsValue);
+	return (this->_fixedNumber);
 }
 
 void Fixed::setRawBits(int const raw)
