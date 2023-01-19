@@ -6,7 +6,9 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 16:26:57 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/19 16:26:58 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/19 16:45:21 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Point.hpp"
+#include "Fixed.hpp"

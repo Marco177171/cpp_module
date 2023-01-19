@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 14:29:08 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/19 15:42:02 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/19 17:00:53 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ class Point {
 };
 
 std::ostream &operator<<(std::ostream &output, Fixed const &input);
-std::istream &operator>>(std::istream &input, Fixed const &output);
+std::istream &operator>>(std::istream &input, Fixed const &infloat);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 14:29:05 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/19 16:26:33 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/19 17:01:01 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ std::ostream &operator<<(std::ostream &output, Fixed const &input)
 	return (output);
 }
 
-std::istream &operator>>(std::istream &input, Fixed const &output)
+std::istream &operator>>(std::istream &input, float &infloat)
 {
-	input >> output.toFloat();
+	input << infloat;
 	return (input);
 }
