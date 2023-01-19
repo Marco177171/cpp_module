@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 17:51:11 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/18 17:51:21 by masebast         ###   ########.fr       */
+/*   Created: 2023/01/19 14:28:57 by masebast          #+#    #+#             */
+/*   Updated: 2023/01/19 14:35:46 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 # define FIXED_HPP
-# include <iostream>
 # include <cmath>
+# include <iostream>
 
 class Fixed {
 	public:
