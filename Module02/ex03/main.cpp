@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 16:26:54 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/20 17:23:00 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/20 18:34:41 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,11 @@ int main(void)
 	std::cin >> y;
 	point = Point(x, y);
 	std::cout << "Point created." << std::endl;
-	std::cout << "Intersection: " << bsp(t_point[0], t_point[1], t_point[2], point);
-	std::cout << std::endl;
+	std::cout << "Intersection: " << std::endl;
+	if (bsp(t_point[0], t_point[1], t_point[2], point) == true)
+		std::cout << "true" << std::endl;
+	else
+		std::cout << "false" << std::endl;
 	// delete [](t_point);
 	return (0);
 }
