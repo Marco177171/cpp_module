@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 14:29:08 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/20 18:05:43 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/20 20:23:12 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Point {
 		Point(const float x, const float y);
 		Point(const Point &source);
 		Point &operator=(const Point &source);
+		bool operator==(const Point &p1) const;
 		~Point(void);
 		Fixed getX() const;
 		Fixed getY() const;

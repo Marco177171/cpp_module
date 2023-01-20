@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 14:29:05 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/20 18:06:02 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/20 20:26:09 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,15 @@ Point &Point::operator=(const Point &source)
 	return (*this);
 }
 
-Point::~Point(void)
+bool Point::operator==(const Point &p1) const
 {
-	std::cout << "Point destructor called" << std::endl;
+	if (this->x == p1.x && this->y == p1.y)
+		return (true);
+	return (false);
 }
+
+Point::~Point(void)
+{}
 
 std::ostream &operator<<(std::ostream &output, Fixed const &input)
 {

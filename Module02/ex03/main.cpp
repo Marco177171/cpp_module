@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 16:26:54 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/20 18:48:04 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/20 20:25:48 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int main(void)
 	int index;
 
 	index = 0;
+	std::cout << "Check whether a point is inside a triangle or not" << std::endl;
+	std::cout << "DEFINE TRIANGLE ANGLES..." << std::endl;
 	while (index < 3)
 	{
 		std::cout << "NEW POINT " << index << ": " << std::endl;
