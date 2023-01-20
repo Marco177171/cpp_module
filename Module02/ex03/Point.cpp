@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 14:29:05 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/20 17:28:47 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/20 18:06:02 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ Point::Point(const Point &source)
 	*this = source;
 }
 
-Fixed Point::getX()
+Fixed Point::getX() const
 {
 	return (this->x);
 }
 
-Fixed Point::getY()
+Fixed Point::getY() const
 {
 	return (this->y);
 }

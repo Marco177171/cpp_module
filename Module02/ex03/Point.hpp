@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 14:29:08 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/20 17:36:13 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/20 18:05:43 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class Point {
 		Point(const Point &source);
 		Point &operator=(const Point &source);
 		~Point(void);
-		Fixed getX();
-		Fixed getY();
+		Fixed getX() const;
+		Fixed getY() const;
 	private:
 		Fixed x;
 		Fixed y;
