@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 14:28:52 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/19 16:44:53 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/20 16:23:25 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,10 +184,4 @@ Fixed const &Fixed::max(Fixed const &f1, Fixed const &f2)
 	if (f1 < f2)
 		return (f2);
 	return (f1);
-}
-
-std::ostream &operator<<(std::ostream &output, Fixed const &input)
-{
-	output << input.toFloat();
-	return (output);
 }

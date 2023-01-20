@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 14:29:08 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/19 17:42:33 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/20 17:36:13 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,14 @@ class Point {
 		Point(const Point &source);
 		Point &operator=(const Point &source);
 		~Point(void);
+		Fixed getX();
+		Fixed getY();
 	private:
 		Fixed x;
 		Fixed y;
 };
 
+bool bsp(Point const a, Point const b, Point const c, Point const point);
 std::ostream &operator<<(std::ostream &output, Fixed const &input);
-std::istream &operator>>(std::istream &input, Fixed const &inFixed);
 
 #endif
