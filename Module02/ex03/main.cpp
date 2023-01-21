@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 16:26:54 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/20 20:25:48 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/20 20:31:25 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ int main(void)
 	std::cout << "Point created." << std::endl;
 	std::cout << "Intersection: " << std::endl;
 	if (bsp(t_point[0], t_point[1], t_point[2], point) == true)
-		std::cout << "true" << std::endl;
+		std::cout << "TRUE. The point is in the triangle" << std::endl;
 	else
-		std::cout << "false" << std::endl;
+		std::cout << "FALSE. The point os not in the triangle" << std::endl;
 	return (0);
 }
