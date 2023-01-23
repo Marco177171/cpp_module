@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 17:21:46 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/23 18:48:03 by masebast         ###   ########.fr       */
+/*   Created: 2023/01/23 18:48:08 by masebast          #+#    #+#             */
+/*   Updated: 2023/01/23 19:02:52 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-int main(void)
+ScavTrap::ScavTrap(const std::string name)
 {
-	ClapTrap clyde("Clyde");
+	
+	std::cout << "ScavTrap constructor called" << std::endl;
+}
 
-	clyde.attack("Bonny");
-	clyde.takeDamage(5);
-	clyde.beRepaired(4);
+ScavTrap::~ScavTrap()
+{
+	std::cout << "ScavTrap destructor called" << std::endl;
 }

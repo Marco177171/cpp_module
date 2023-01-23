@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 17:21:46 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/23 18:48:03 by masebast         ###   ########.fr       */
+/*   Created: 2023/01/23 17:21:41 by masebast          #+#    #+#             */
+/*   Updated: 2023/01/23 19:13:06 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
+# include <iostream>
 
-int main(void)
-{
-	ClapTrap clyde("Clyde");
+class ClapTrap {
+	public:
+		ClapTrap(const std::string name);
+		~ClapTrap(void);
+		void attack(const std::string &target);
+		void takeDamage(unsigned int amount);
+		void beRepaired(unsigned int amount);
+	private:
+		std::string _name;
+		int _hitPoints;
+		int _energy;
+		int _attackDamage;
+};
 
-	clyde.attack("Bonny");
-	clyde.takeDamage(5);
-	clyde.beRepaired(4);
-}
+#endif

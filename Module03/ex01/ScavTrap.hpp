@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 17:21:46 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/23 18:48:03 by masebast         ###   ########.fr       */
+/*   Created: 2023/01/23 18:48:14 by masebast          #+#    #+#             */
+/*   Updated: 2023/01/23 18:55:27 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
+# include "ClapTrap.hpp"
 
-int main(void)
-{
-	ClapTrap clyde("Clyde");
+class ScavTrap : private ClapTrap {
+	public:
+		ScavTrap(const std::string name);
+		~ScavTrap();
+	private:
+		void guardGate();
+};
 
-	clyde.attack("Bonny");
-	clyde.takeDamage(5);
-	clyde.beRepaired(4);
-}
+#endif
