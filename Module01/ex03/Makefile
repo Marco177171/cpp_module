@@ -4,7 +4,7 @@ SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 $(NAME): $(OBJS)
-	c++ $(FLAGS) $(OBJS) -o $(NAME)
+	g++ $(FLAGS) $(OBJS) -o $(NAME)
 
 all: $(NAME)
 

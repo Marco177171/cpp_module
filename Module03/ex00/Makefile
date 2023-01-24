@@ -4,7 +4,7 @@ SRCS = main.cpp ClapTrap.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 $(NAME):
-	c++ $(FLAGS) $(SRCS) -o $(NAME)
+	g++ $(FLAGS) $(SRCS) -o $(NAME)
 
 all: $(NAME)
 

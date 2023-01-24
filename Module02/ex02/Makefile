@@ -4,7 +4,7 @@ SRCS = main.cpp Fixed.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 $(NAME):
-	c++ $(FLAGS) $(SRCS) -o $(NAME)
+	g++ $(FLAGS) $(SRCS) -o $(NAME)
 
 all: $(NAME)
 

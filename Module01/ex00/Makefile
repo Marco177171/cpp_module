@@ -3,7 +3,7 @@ SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 FLAGS = -Wall -Wextra -Werror
 
 $(NAME):
-	c++ $(FLAGS) $(SRCS) -o $(NAME)
+	g++ $(FLAGS) $(SRCS) -o $(NAME)
 
 all: $(NAME)
 
