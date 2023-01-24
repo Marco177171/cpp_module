@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 17:21:37 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/24 17:24:07 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/24 18:07:14 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ClapTrap::ClapTrap(void)
 	std::cout << "Default Constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name)
+ClapTrap::ClapTrap(std::string const name)
 {
 	this->_name = name;
 	this->_hitPoints = 10;
@@ -30,12 +30,12 @@ ClapTrap::ClapTrap(std::string name)
 	std::cout << "Constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &source)
+ClapTrap::ClapTrap( ClapTrap const &source)
 {
 	*this = source;
 }
 
-ClapTrap &ClapTrap::operator=(const ClapTrap &source)
+ClapTrap &ClapTrap::operator=( ClapTrap const &source)
 {
 	this->_name = source._name;
 	this->_hitPoints = source._hitPoints;

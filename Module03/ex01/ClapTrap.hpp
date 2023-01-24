@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 17:21:41 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/24 17:05:05 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/24 18:06:57 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 class ClapTrap {
 	public:
 		ClapTrap(void);
-		ClapTrap(const std::string name);
-		ClapTrap(const ClapTrap &source);
-		ClapTrap &operator=(const ClapTrap &source);
+		ClapTrap( std::string const name);
+		ClapTrap(ClapTrap const &source);
+		ClapTrap &operator=( ClapTrap const &source);
 		~ClapTrap(void);
 		void attack(const std::string &target);
 		void takeDamage(unsigned int amount);

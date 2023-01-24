@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:48:08 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/24 17:33:58 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/24 18:17:24 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ScavTrap::ScavTrap(void) : ClapTrap()
 	std::cout << "Default ScavTrap constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(const std::string name) : ClapTrap(name)
+ScavTrap::ScavTrap(std::string const name) : ClapTrap(name)
 {
 	this->_name = name;
 	this->_hitPoints = 100;
@@ -29,14 +29,14 @@ ScavTrap::ScavTrap(const std::string name) : ClapTrap(name)
 	this->_attackDamage = 20;
 	std::cout << "ScavTrap constructor called" << std::endl;
 }
-
-ScavTrap::ScavTrap(const ScavTrap &source)
+ 
+ScavTrap::ScavTrap(ScavTrap const &source)
 {
 	*this = source;
 	std::cout << "Operator constructor called" << std::endl;
 }
 
-ScavTrap &ScavTrap::operator=(const ScavTrap &source)
+ScavTrap &ScavTrap::operator=(ScavTrap const &source)
 {
 	this->_name = source._name;
 	this->_hitPoints = source._hitPoints;
@@ -53,5 +53,5 @@ ScavTrap::~ScavTrap()
 
 void ScavTrap::guardGate(void)
 {
-	std::cout << this->_name << "is guarding the gate" << std::endl;
+	std::cout << this->_name << " is guarding the gate" << std::endl;
 }
