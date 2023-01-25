@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 13:58:03 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/25 14:47:36 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/25 15:06:03 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,5 @@ DiamondTrap::~DiamondTrap(void)
 
 void DiamondTrap::whoAmI()
 {
-	std::cout << this->_name << " or " << this->ClapTrap::_name << ": “I'm Doctor Who in this motherf*&#er! I could be a clone! I could be a hologram! We could be clones controlled by robots controlled by special headsets that the real Rick and Morty are wearing while they're f*$king your mother!” - Rick Sanchez" << std::endl;
+	std::cout << this->_name << " or " << this->ClapTrap::_name << ": Jerry: 'Who are you?' - Rick: 'Buddy, I've been asking myself that exact *BOOM!* same question'" << std::endl;
 }
