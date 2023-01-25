@@ -6,14 +6,13 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:48:14 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/24 18:46:36 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/25 14:01:32 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCAVTRAP_HPP
 # define SCAVTRAP_HPP
 # include "ClapTrap.hpp"
-# include <iostream>
 
 class ScavTrap : public ClapTrap {
 	public:
