@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 17:21:37 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/25 14:46:19 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/25 16:50:07 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,9 @@ void ClapTrap::beRepaired(unsigned int amount)
 	this->_energy--;
 	std::cout << "Current hit points: " << this->_hitPoints << std::endl;
 	std::cout << "Current energy: " << this->_energy << std::endl;
+}
+
+void ClapTrap::setName(std::string name)
+{
+	this->_name = name;
 }

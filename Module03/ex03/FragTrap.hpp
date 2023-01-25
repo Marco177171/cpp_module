@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 13:07:52 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/25 14:01:13 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/25 16:39:11 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@ class FragTrap : public ClapTrap {
 		FragTrap &operator=(FragTrap const &source);
 		~FragTrap();
 		void highFiveGuys(void);
+	protected:
+		void setHitPoints(int hitPoints);
+		void setEnergy(int energy);
+		void setAttack(int attackDamage);
+		int getHitPoints(void);
+		int getEnergy(void);
+		int getAttack(void);
 };
 
 #endif

@@ -6,12 +6,10 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 17:21:46 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/25 15:00:01 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/25 17:07:55 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
 #include "DiamondTrap.hpp"
 
 int main(void)

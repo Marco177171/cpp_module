@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 13:07:49 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/25 13:55:37 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/25 16:42:07 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,35 @@ FragTrap &FragTrap::operator=(const FragTrap &source)
 FragTrap::~FragTrap(void)
 {
 	std::cout << "FragTrap Destructor called" << std::endl;
+}
+void FragTrap::setHitPoints(int hitPoints)
+{
+	this->_hitPoints = hitPoints;
+}
+
+void FragTrap::setEnergy(int energy)
+{
+	this->_energy = energy;
+}
+
+void FragTrap::setAttack(int attackDamage)
+{
+	this->_attackDamage = attackDamage;
+}
+
+int FragTrap::getHitPoints(void)
+{
+	return (this->_hitPoints);
+}
+
+int FragTrap::getEnergy(void)
+{
+	return (this->_energy);
+}
+
+int FragTrap::getAttack(void)
+{
+	return (this->_attackDamage);
 }
 
 void FragTrap::highFiveGuys(void)

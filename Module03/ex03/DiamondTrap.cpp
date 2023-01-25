@@ -6,29 +6,30 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 13:58:03 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/25 15:07:10 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/25 17:07:59 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(void) : ScavTrap(), FragTrap()
+DiamondTrap::DiamondTrap(void)
 {
-	this->_name = "DiamondTrap";
-	this->_hitPoints = 100;
-	this->_energy = 50;
-	this->_attackDamage = 30;
-	std::cout << "DiamondTrap default constructor called" << std::endl;
+	this->_name = "Default DiamondTrap";
+	this->FragTrap::setHitPoints(FragTrap::getHitPoints());
+	this->ScavTrap::setEnergy(ScavTrap::getEnergy());
+	this->FragTrap::setAttack(FragTrap::getAttack());
+	this->FragTrap::ClapTrap::setName(this->_name + "_clap_name");
+	std::cout << "Default DiamondTrap construcotr called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const std::string name) : ScavTrap(), FragTrap()
+DiamondTrap::DiamondTrap(std::string name) : ScavTrap(), FragTrap()
 {
 	this->_name = name;
-	this->ClapTrap::_name = name + "_clap_name";
-	this->_hitPoints = 100;
-	this->_energy = 50;
-	this->_attackDamage = 30;
-	std::cout << "DiamondTrap name constructor called. Name: " << name << std::endl;
+	this->FragTrap::setHitPoints(FragTrap::getHitPoints());
+	this->ScavTrap::setEnergy(ScavTrap::getEnergy());
+	this->FragTrap::setAttack(FragTrap::getAttack());
+	this.FragTrap::ClapTrap::setName(this->_name + "_clap_name");
+	std::cout << "Default DiamondTrap construcotr called" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &source)
@@ -39,11 +40,7 @@ DiamondTrap::DiamondTrap(const DiamondTrap &source)
 
 DiamondTrap &DiamondTrap::operator=(const DiamondTrap &source)
 {
-	this->_name = source.DiamondTrap::_name;
-	this->_hitPoints = source.DiamondTrap::_hitPoints;
-	this->_energy = source.DiamondTrap::_energy;
-	this->_attackDamage = source.DiamondTrap::_attackDamage;
-	std::cout << "DiamondTrap cloned with operator" << std::endl;
+	
 	return (*this);
 }
 
