@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 13:07:49 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/25 13:29:42 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/25 13:32:12 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ FragTrap &FragTrap::operator=(const FragTrap &source)
 	this->_hitPoints = source._hitPoints;
 	this->_energy = source._energy;
 	this->_attackDamage = source._attackDamage;
+	std::cout << source._name << " cloned with operator" << std::endl;
 	return (*this);
 }
 
