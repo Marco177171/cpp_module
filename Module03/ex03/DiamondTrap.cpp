@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 13:58:03 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/25 15:06:03 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/25 15:07:10 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ DiamondTrap::~DiamondTrap(void)
 
 void DiamondTrap::whoAmI()
 {
-	std::cout << this->_name << " or " << this->ClapTrap::_name << ": Jerry: 'Who are you?' - Rick: 'Buddy, I've been asking myself that exact *BOOM!* same question'" << std::endl;
+	std::cout << this->_name << " or " << this->ClapTrap::_name << " debug message" << std::endl;
+	std::cout << "Jerry: 'Who are you?' - Rick: 'Buddy, I've been asking myself that exact *BOOM!* same question...'" << std::endl;
 }
