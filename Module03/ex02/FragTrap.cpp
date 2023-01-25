@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 13:07:49 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/25 13:28:16 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/25 13:29:42 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ FragTrap::FragTrap(std::string name)
 FragTrap::FragTrap(const FragTrap &source)
 {
 	*this = source;
-	std::cout << source._name << "Cloned with constructor" << std::endl;
+	std::cout << source._name << " cloned with constructor" << std::endl;
 }
 
 FragTrap &FragTrap::operator=(const FragTrap &source)
