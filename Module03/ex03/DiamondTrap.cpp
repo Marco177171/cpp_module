@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 13:58:03 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/25 17:07:59 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/26 15:51:36 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ DiamondTrap::DiamondTrap(void)
 	this->FragTrap::setHitPoints(FragTrap::getHitPoints());
 	this->ScavTrap::setEnergy(ScavTrap::getEnergy());
 	this->FragTrap::setAttack(FragTrap::getAttack());
-	this->FragTrap::ClapTrap::setName(this->_name + "_clap_name");
+	ClapTrap::setName(this->_name + "_clap_name");
 	std::cout << "Default DiamondTrap construcotr called" << std::endl;
 }
 
@@ -28,7 +28,7 @@ DiamondTrap::DiamondTrap(std::string name) : ScavTrap(), FragTrap()
 	this->FragTrap::setHitPoints(FragTrap::getHitPoints());
 	this->ScavTrap::setEnergy(ScavTrap::getEnergy());
 	this->FragTrap::setAttack(FragTrap::getAttack());
-	this.FragTrap::ClapTrap::setName(this->_name + "_clap_name");
+	ClapTrap::setName(this->_name + "_clap_name");
 	std::cout << "Default DiamondTrap construcotr called" << std::endl;
 }
 
@@ -51,6 +51,6 @@ DiamondTrap::~DiamondTrap(void)
 
 void DiamondTrap::whoAmI()
 {
-	std::cout << this->_name << " or " << this->ClapTrap::_name << " debug message" << std::endl;
+	std::cout << this->_name << " or " << ClapTrap::getName() << " debug message" << std::endl;
 	std::cout << "Jerry: 'Who are you?' - Rick: 'Buddy, I've been asking myself that exact *BOOM!* same question...'" << std::endl;
 }

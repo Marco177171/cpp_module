@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 13:58:07 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/25 16:53:58 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/26 15:19:07 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class DiamondTrap : public ScavTrap, public FragTrap {
 		void attack(std::string const &target);
 		void whoAmI(void);
 	private:
-		const std::string _name;
+		std::string _name;
 };
 
 #endif

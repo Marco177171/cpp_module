@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 17:21:37 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/25 16:50:07 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/26 15:28:19 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,9 @@ void ClapTrap::beRepaired(unsigned int amount)
 void ClapTrap::setName(std::string name)
 {
 	this->_name = name;
+}
+
+std::string ClapTrap::getName(void)
+{
+	return (this->_name);
 }
