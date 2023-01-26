@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 13:07:52 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/25 16:39:11 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/26 17:37:16 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class FragTrap : public ClapTrap {
 		FragTrap(std::string name);
 		FragTrap(FragTrap const &source);
 		FragTrap &operator=(FragTrap const &source);
-		~FragTrap();
+		virtual ~FragTrap();
 		void highFiveGuys(void);
 	protected:
 		void setHitPoints(int hitPoints);

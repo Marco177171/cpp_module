@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:48:14 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/25 16:44:34 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/26 17:37:45 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class ScavTrap : public ClapTrap {
 		ScavTrap(std::string const name);
 		ScavTrap(ScavTrap const &source);
 		ScavTrap &operator=(ScavTrap const &source);
-		~ScavTrap();
+		virtual ~ScavTrap();
 		void guardGate();
 	protected:
 		void setHitPoints(int hitPoints);

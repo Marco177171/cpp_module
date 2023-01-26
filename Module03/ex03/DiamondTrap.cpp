@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 13:58:03 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/26 15:51:36 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/26 17:51:03 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ DiamondTrap::DiamondTrap(void)
 	std::cout << "Default DiamondTrap construcotr called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ScavTrap(), FragTrap()
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(), ScavTrap(), FragTrap()
 {
 	this->_name = name;
 	this->FragTrap::setHitPoints(FragTrap::getHitPoints());
 	this->ScavTrap::setEnergy(ScavTrap::getEnergy());
 	this->FragTrap::setAttack(FragTrap::getAttack());
-	ClapTrap::setName(this->_name + "_clap_name");
+	this.FragTrap->ClapTrap::setName(this->_name + "_clap_name");
 	std::cout << "Default DiamondTrap construcotr called" << std::endl;
 }
 

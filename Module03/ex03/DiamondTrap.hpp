@@ -6,14 +6,14 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 13:58:07 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/26 15:19:07 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/26 17:28:47 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DIAMONDTRAP_HPP
 # define DIAMONDTRAP_HPP
-# include "ScavTrap.hpp"
 # include "FragTrap.hpp"
+# include "ScavTrap.hpp"
 
 class DiamondTrap : public ScavTrap, public FragTrap {
 	public:
