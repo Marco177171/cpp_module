@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 17:53:30 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/28 18:40:27 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/28 18:58:26 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,15 @@ Animal &Animal::operator=(const Animal &src)
 Animal::~Animal(void)
 {
 	std::cout << "Animal destructor called" << std::endl;
+}
+
+void Animal::makeSound(void)
+{
+	std::cout << "Animal makes sound!" << std::endl;
+	std::cout << "AAOOOOO!" << std::endl;
+}
+
+std::string Animal::getType(void)
+{
+    return (this->_type);
 }
