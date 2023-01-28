@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 17:51:25 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/28 18:34:49 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/28 19:51:04 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Dog::~Dog(void)
 	std::cout << "Dog destructor called" << std::endl;
 }
 
-void Dog::makeSound(void)
+void Dog::makeSound(void) const
 {
 	std::cout << "Dog makes sound!" << std::endl;
 	std::cout << "Woof!" << std::endl;

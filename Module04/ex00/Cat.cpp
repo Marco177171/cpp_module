@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 17:51:10 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/28 18:34:40 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/28 19:51:09 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Cat::~Cat(void)
 	std::cout << "Cat destructor called" << std::endl;
 }
 
-void Cat::makeSound(void)
+void Cat::makeSound(void) const
 {
 	std::cout << "Cat makes sound!" << std::endl;
 	std::cout << "Meow!" << std::endl;

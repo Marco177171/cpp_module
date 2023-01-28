@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 17:53:30 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/28 18:58:26 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/28 19:52:12 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ Animal::~Animal(void)
 	std::cout << "Animal destructor called" << std::endl;
 }
 
-void Animal::makeSound(void)
+void Animal::makeSound(void) const
 {
 	std::cout << "Animal makes sound!" << std::endl;
 	std::cout << "AAOOOOO!" << std::endl;
 }
 
-std::string Animal::getType(void)
+std::string Animal::getType(void) const
 {
     return (this->_type);
 }
