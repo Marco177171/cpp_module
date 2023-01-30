@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 17:51:25 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/30 16:35:09 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/30 16:53:34 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ Dog &Dog::operator=(const Dog &src)
 
 Dog::~Dog(void)
 {
+	delete this->_brain;
 	std::cout << "Dog destructor called" << std::endl;
 }
 

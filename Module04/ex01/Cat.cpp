@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 17:51:10 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/30 16:35:17 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/30 16:52:40 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ Cat &Cat::operator=(const Cat &src)
 
 Cat::~Cat(void)
 {
+	delete this->_brain;
 	std::cout << "Cat destructor called" << std::endl;
 }
 
