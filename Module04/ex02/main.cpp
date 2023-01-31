@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 14:50:55 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/30 17:50:32 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/31 21:34:28 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int main()
 {
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
+	// const Animal animal; // uninstantiable. Abstract class
 
 	std::cout << j->getType() << std::endl;
 	std::cout << i->getType() << std::endl;
@@ -26,6 +27,9 @@ int main()
 	int index;
 	Animal *(animalList[10]);
 
+	// std::cout << animal.getType() << std::endl; // cannot call. Abstract class
+
+	std::cout << "ANIMAL LIST:" << std::endl;
 	index = -1;
 	while (++index < 10)
 	{
@@ -34,6 +38,8 @@ int main()
 		else
 			animalList[index] = new Cat();
 	}
+
+	std::cout << "LIST DESTRUCTION:" << std::endl;
 	index = -1;
 	while (++index < 10)
 		delete (animalList[index]);
