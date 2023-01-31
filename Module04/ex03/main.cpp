@@ -6,12 +6,14 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 19:13:52 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/31 21:47:43 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/31 22:12:26 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
-#include "ICharacter.hpp"
+#include "Materia.hpp"
+#include "Character.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 int main(void) {
 	IMateriaSource* src = new MateriaSource();

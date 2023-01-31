@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.cpp                                     :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/31 19:13:44 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/31 22:08:36 by masebast         ###   ########.fr       */
+/*   Created: 2023/01/31 21:57:49 by masebast          #+#    #+#             */
+/*   Updated: 2023/01/31 22:07:42 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ICharacter.hpp"
+#include "Ice.hpp"
 
-ICharacter::ICharacter(void)
+Ice::Ice(void)
 {
-	std::cout << "Default ICharacter constructor called" << std::endl;
+	this->_type = "Ice";
+	std::cout << "Default Ice constructor called" << std::endl;
 }
 
-ICharacter::ICharacter(const ICharacter &src)
+Ice::Ice(const Ice &src)
 {
 	*this = src;
-	std::cout << "ICharacter copy constructor called" << std::endl;
+	std::cout << "Ice copy constructor called" << std::endl;
 }
 
-ICharacter &ICharacter::operator=(const ICharacter &src)
+Ice &Ice::operator=(const Ice &src)
 {
-	std::cout << "ICharacter overload constructor called" << std::endl;
+	this->_type = src._type;
+	std::cout << "Ice overload constructor called" << std::endl;
 	return (*this);
 }
 
-ICharacter::~ICharacter(void)
+Ice::~Ice(void)
 {
-	std::cout << "ICharacter destructor called" << std::endl;
+	std::cout << "Cure destructor called" << std::endl;
 }

@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.hpp                                      :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/31 21:58:22 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/31 22:09:24 by masebast         ###   ########.fr       */
+/*   Created: 2023/01/31 21:57:46 by masebast          #+#    #+#             */
+/*   Updated: 2023/01/31 22:06:40 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHARACTER_HPP
-# define CHARACTER_HPP
+#ifndef CURE_HPP
+# define CURE_HPP
 # include <iostream>
-# include "ICharacter.hpp"
+# include "IMateriaSource.hpp"
 
-class Character
+class Cure
 {
 	public:
-		Character(void);
-		Character(const Character &source);
-		Character(std::string const &type);
-		~Character(void);
-		Character &operator=(const Character &source);
-	protected:
-		//none
+		Cure(void);
+		Cure(const Cure &source);
+		Cure(std::string const &type);
+		~Cure(void);
+		Cure &operator=(const Cure &source);
+	private:
+		std::string _type;
 };
 
 #endif
