@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 17:50:57 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/30 17:45:18 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/31 18:38:54 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Animal {
 		Animal(Animal const &src);
 		Animal &operator=(Animal const &src);
 		virtual ~Animal();
-		void makeSound(void) const;
+		virtual void makeSound(void) const;
 		std::string getType(void) const;
 	protected:
 		std::string _type;

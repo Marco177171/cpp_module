@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   animal.cpp                                         :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 17:53:30 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/28 19:52:12 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/31 18:21:51 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Animal::Animal(void)
 {
-    this->_type = "Animal";
+	this->_type = "Animal";
 	std::cout << "Default Animal constructor called" << std::endl;
 }
 
@@ -44,5 +44,5 @@ void Animal::makeSound(void) const
 
 std::string Animal::getType(void) const
 {
-    return (this->_type);
+	return (this->_type);
 }

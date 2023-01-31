@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 17:51:35 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/28 19:51:44 by masebast         ###   ########.fr       */
+/*   Updated: 2023/01/31 18:28:06 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ class Dog : public Animal {
 		Dog(void);
 		Dog(const Dog &src);
 		Dog &operator=(const Dog &src);
-		~Dog(void);
-		void makeSound(void) const;
+		virtual ~Dog(void);
+		virtual void makeSound(void) const;
 };
 
 #endif
