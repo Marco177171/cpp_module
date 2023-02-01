@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 19:13:52 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/01 20:49:01 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/01 21:46:53 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,11 @@ int main(void) {
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
-
-	std::cout << "----- Here" << std::endl;
 	ICharacter* me = new Character("me");
-
 	AMateria* tmp;
+
 	tmp = src->createMateria("ice");
+
 	std::cout << tmp->getType() << std::endl;
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
