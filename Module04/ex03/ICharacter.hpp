@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 19:13:47 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/01 17:47:17 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/01 19:20:06 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 # include <iostream>
 # include "AMateria.hpp"
 
+class AMateria;
+
 class ICharacter {
 	public:
 		virtual ~ICharacter(void) {};
@@ -22,8 +24,8 @@ class ICharacter {
 		virtual void equip(AMateria* m) = 0;
 		virtual void unequip(int idx) = 0;
 		virtual void use(int idx, ICharacter& target) = 0;
-	private:
 		AMateria *inventory[4];
+	private:
 };
 
 #endif

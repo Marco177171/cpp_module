@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 22:13:36 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/01 18:36:53 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/01 19:16:23 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class MateriaSource : public IMateriaSource
 		void learnMateria(AMateria* m);
 		AMateria* createMateria(std::string const & type);
 	private:
+		std::string _type; 
 		AMateria* _inventory[4];
 };
 

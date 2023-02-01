@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 21:57:42 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/01 18:25:52 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/01 19:19:37 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ Cure::~Cure(void)
 }
 
 
-void Cure::use(Character &target)
+void Cure::use(ICharacter &target)
 {
-	std::cout << this->_type << " shoots an Cure bolt at " << target.getName() << "!" << std::endl;
+	std::cout << this->_type << " Cures " << target.getName() << "!" << std::endl;
 }
 
 AMateria* Cure::clone(void) const

@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 21:57:49 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/01 18:24:00 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/01 19:19:39 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ Ice::~Ice(void)
 }
 
 
-void Ice::use(Character &target)
+void Ice::use(ICharacter &target)
 {
 	std::cout << this->_type << " shoots an Ice bolt at " << target.getName() << "!" << std::endl;
 }
