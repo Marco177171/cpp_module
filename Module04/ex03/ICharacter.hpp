@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 19:13:47 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/31 21:46:53 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:47:17 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class ICharacter {
 	public:
-		virtual ~ICharacter() {}
+		virtual ~ICharacter(void) {};
 		virtual std::string const & getName() const = 0;
 		virtual void equip(AMateria* m) = 0;
 		virtual void unequip(int idx) = 0;

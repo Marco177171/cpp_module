@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 19:13:40 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/31 22:11:24 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/01 18:18:42 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class AMateria
 		virtual AMateria* clone() const = 0;
 		virtual void use(ICharacter &target);
 	protected:
-		//none
+		std::string _type;
 };
 
 #endif

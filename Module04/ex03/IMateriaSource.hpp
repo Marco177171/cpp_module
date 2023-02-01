@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 21:49:07 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/31 21:52:11 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:47:00 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 class IMateriaSource {
 	public:
-		virtual ~IMateriaSource() {}
+		virtual ~IMateriaSource() {};
 		virtual void learnMateria(AMateria*) = 0;
 		virtual AMateria* createMateria(std::string const & type) = 0;
 };
