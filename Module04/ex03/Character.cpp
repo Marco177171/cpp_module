@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 21:58:19 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/01 20:33:16 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/01 21:02:19 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,12 @@ Character &Character::operator=(const Character &source)
 
 Character::~Character(void)
 {
-	delete[] *this->inventory;
-	// int index;
+	int index;
 
-	// index = -1;
-	// while (this->inventory[++index])
-	// 	if (this->inventory[index])
-	// 		delete this->inventory[index];
+	index = -1;
+	while (this->inventory[++index])
+		if (this->inventory[index])
+			delete this->inventory[index];
 	std::cout << "Character destructor called" << std::endl;
 }
 
