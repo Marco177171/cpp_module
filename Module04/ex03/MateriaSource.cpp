@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 22:13:41 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/01 21:57:54 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/02 17:39:42 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,11 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 	while (++index < 4)
 	{
 		std::cout << "in" << std::endl;
-		if (this->_inventory[index] && !this->_inventory[index]->getType().compare(type))
+		if (this->_inventory[index]->getType() == type)
+		{
+			std::cout << "return" << std::endl;
 			return (this->_inventory[index]->clone());
+		}
 	}
-	return (NULL);
+	return (0);
 }

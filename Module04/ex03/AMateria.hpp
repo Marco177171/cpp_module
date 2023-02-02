@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 19:13:40 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/01 20:19:43 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/02 16:52:20 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ class AMateria
 	protected:
 		std::string _type;
 };
+
+std::string	convertToTypeStr(std::string s);
 
 #endif

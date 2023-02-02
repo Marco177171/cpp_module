@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 21:57:49 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/01 19:19:39 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/02 16:50:05 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Ice::Ice(void) : AMateria("Ice")
 }
 
 
-Ice::Ice(std::string const &type) : AMateria(type)
+Ice::Ice(std::string const &type) : AMateria(convertToTypeStr(type))
 {
 	std::cout << "Type constructor called on Ice" << std::endl;
 }
@@ -50,4 +50,13 @@ void Ice::use(ICharacter &target)
 AMateria* Ice::clone(void) const
 {
 	return (new Ice(this->_type));	
+}
+
+std::string	convertToTypeStr(std::string s)
+{
+	std::string	ret;
+
+	ret = s;
+	ret[0] = tolower(ret[0]);
+	return (ret);
 }

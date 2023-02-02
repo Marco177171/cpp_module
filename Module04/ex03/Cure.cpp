@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 21:57:42 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/01 19:19:37 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/02 17:20:14 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ Cure::Cure(void) : AMateria("Cure")
 	std::cout << "Default Cure constructor called" << std::endl;
 }
 
-
-Cure::Cure(std::string const &type) : AMateria(type)
+Cure::Cure(std::string const &type) : AMateria(convertToTypeStr(type))
 {
 	std::cout << "Type constructor called on Cure" << std::endl;
 }

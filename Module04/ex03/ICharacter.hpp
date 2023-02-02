@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 19:13:47 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/01 19:20:06 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/02 17:19:51 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ class ICharacter {
 		virtual void equip(AMateria* m) = 0;
 		virtual void unequip(int idx) = 0;
 		virtual void use(int idx, ICharacter& target) = 0;
-		AMateria *inventory[4];
-	private:
 };
 
 #endif

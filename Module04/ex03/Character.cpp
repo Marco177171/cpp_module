@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 21:58:19 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/01 21:02:19 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/02 17:21:14 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ Character::~Character(void)
 			delete this->inventory[index];
 	std::cout << "Character destructor called" << std::endl;
 }
-
 
 std::string const &Character::getName() const
 {
