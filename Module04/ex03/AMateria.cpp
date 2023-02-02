@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 19:13:37 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/02 19:15:56 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/02 21:15:27 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ AMateria::~AMateria(void)
 	std::cout << "AMateria default destructor called" << std::endl;
 }
 
-std::string const & AMateria::getType() const
+std::string const & AMateria::getType(void) const
 {
 	return (this->_type);
 }

@@ -6,16 +6,15 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 21:57:42 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/02 19:13:30 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/02 21:18:45 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 #include "Character.hpp"
 
-Cure::Cure(void)
+Cure::Cure(void) : AMateria("cure")
 {
-	this->_type = "cure";
 	std::cout << "Default Cure constructor called" << std::endl;
 }
 
@@ -45,5 +44,6 @@ void Cure::use(ICharacter &target)
 
 AMateria* Cure::clone(void) const
 {
+	std::cout << "Cloning Cure" << std::endl;
 	return (new Cure());
 }

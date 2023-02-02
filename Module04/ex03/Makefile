@@ -4,7 +4,7 @@ SRCS = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 $(NAME):
-	g++ $(FLAGS) $(SRCS) -o $(NAME)
+	g++ -g $(FLAGS) $(SRCS) -o $(NAME)
 
 all: $(NAME)
 

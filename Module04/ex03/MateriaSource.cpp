@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 22:13:41 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/02 19:32:51 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/02 21:13:34 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ void MateriaSource::learnMateria(AMateria* m)
 	int index;
 
 	index = 0;
-	while (this->_inventory[index] != NULL && index < 4)
+	std::cout << "AAAAAAAAAAAAAA" << std::endl;
+	while (this->_inventory[index] != NULL)
 		index++;
 	if (index >= 4)
 	{
@@ -72,6 +73,7 @@ void MateriaSource::learnMateria(AMateria* m)
 	}
 	else
 		this->_inventory[index] = m;
+		std::cout << m->getType() << std::endl;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
@@ -80,12 +82,13 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 
 	index = 0;
 	std::cout << "createMateria" << std::endl;
-	while (this->_inventory[index] && ((this->_inventory)[index])->getType() != type && index < 4)
+	while (this->_inventory[index] && ((this->_inventory)[index])->getType().compare(type) != 0 && index < 5)
 		index++;
-	if (index >= 4 || !(this->_inventory)[index])
+	if (index >= 5 || !(this->_inventory)[index])
 	{
 		std::cout << "return" << std::endl;
 		return (NULL);
 	}
+	std::cout << "Inventory 0 " << index << this->_inventory[0]->getType() << type << std::endl;
 	return ((this->_inventory[index])->clone());
 }
