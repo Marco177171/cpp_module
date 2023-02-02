@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 19:13:37 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/01 20:19:45 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/02 19:15:56 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,6 @@ AMateria::~AMateria(void)
 std::string const & AMateria::getType() const
 {
 	return (this->_type);
-}
-
-AMateria* AMateria::clone() const
-{
-	return (new AMateria(*this));
 }
 
 void AMateria::use(ICharacter &target)

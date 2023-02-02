@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 21:58:22 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/02 17:23:39 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/02 19:19:29 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Character : public ICharacter
 		void unequip(int idx);
 		void use(int idx, ICharacter& target);
 	private:
-		AMateria *inventory[4];
+		AMateria *(inventory[4]);
 		std::string _type;
 };
 

@@ -6,25 +6,22 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 21:57:42 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/02 17:20:14 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/02 19:13:30 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 #include "Character.hpp"
 
-Cure::Cure(void) : AMateria("Cure")
+Cure::Cure(void)
 {
+	this->_type = "cure";
 	std::cout << "Default Cure constructor called" << std::endl;
 }
 
-Cure::Cure(std::string const &type) : AMateria(convertToTypeStr(type))
+Cure::Cure(const Cure &src)
 {
-	std::cout << "Type constructor called on Cure" << std::endl;
-}
-
-Cure::Cure(const Cure &src) : AMateria(src.getType())
-{
+	this->_type = src.getType();
 	std::cout << "Cure copy constructor called" << std::endl;
 }
 
@@ -48,5 +45,5 @@ void Cure::use(ICharacter &target)
 
 AMateria* Cure::clone(void) const
 {
-	return (new Cure(this->_type));	
+	return (new Cure());
 }

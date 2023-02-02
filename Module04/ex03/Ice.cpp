@@ -6,22 +6,17 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 21:57:49 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/02 16:50:05 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/02 19:13:37 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 #include "Character.hpp"
 
-Ice::Ice(void) : AMateria("Ice")
+Ice::Ice(void)
 {
+	this->_type = "ice";
 	std::cout << "Default Ice constructor called" << std::endl;
-}
-
-
-Ice::Ice(std::string const &type) : AMateria(convertToTypeStr(type))
-{
-	std::cout << "Type constructor called on Ice" << std::endl;
 }
 
 Ice::Ice(const Ice &src) : AMateria(src.getType())
@@ -49,7 +44,7 @@ void Ice::use(ICharacter &target)
 
 AMateria* Ice::clone(void) const
 {
-	return (new Ice(this->_type));	
+	return (new Ice());	
 }
 
 std::string	convertToTypeStr(std::string s)

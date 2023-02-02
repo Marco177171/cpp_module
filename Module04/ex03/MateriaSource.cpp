@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 22:13:41 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/02 17:39:42 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/02 19:32:51 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ MateriaSource::MateriaSource(const MateriaSource &source)
 
 	index = -1;
 	while (this->_inventory[++index])
-		this->_inventory[index] = source._inventory[index];
+		this->_inventory[index] = (source._inventory[index])->clone();
 	std::cout << "MateriaSource copy constructor called" << std::endl;
 }
 
@@ -38,12 +38,23 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &source)
 
 	index = -1;
 	while (this->_inventory[++index])
-		this->_inventory[index] = source._inventory[index];
+	{
+		if (this->_inventory[index])
+			delete this->_inventory[index];
+		if (source._inventory[index])
+			this->_inventory[index] = (source._inventory[index])->clone();
+	}
 	return (*this);
 }
 
 MateriaSource::~MateriaSource(void)
 {
+	int index;
+
+	index = -1;
+	while (this->_inventory[++index])
+		if (this->_inventory[index])
+			delete this->_inventory[index];
 	std::cout << "MateriaSource destructor called" << std::endl;
 }
 
@@ -51,32 +62,30 @@ void MateriaSource::learnMateria(AMateria* m)
 {
 	int index;
 
-	index = -1;
-	while (this->_inventory[++index])
+	index = 0;
+	while (this->_inventory[index] != NULL && index < 4)
+		index++;
+	if (index >= 4)
 	{
-		if (this->_inventory[index] == NULL)
-		{
-			this->_inventory[index] = m->clone();
-			break ;
-		}
+		std::cout << "No space in inventory" << std::endl;
+		return ;
 	}
-	delete m;
+	else
+		this->_inventory[index] = m;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
 {
 	int index;
 
-	index = -1;
+	index = 0;
 	std::cout << "createMateria" << std::endl;
-	while (++index < 4)
+	while (this->_inventory[index] && ((this->_inventory)[index])->getType() != type && index < 4)
+		index++;
+	if (index >= 4 || !(this->_inventory)[index])
 	{
-		std::cout << "in" << std::endl;
-		if (this->_inventory[index]->getType() == type)
-		{
-			std::cout << "return" << std::endl;
-			return (this->_inventory[index]->clone());
-		}
+		std::cout << "return" << std::endl;
+		return (NULL);
 	}
-	return (0);
+	return ((this->_inventory[index])->clone());
 }

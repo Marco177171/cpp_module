@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 21:57:46 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/02 17:12:34 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/02 19:11:38 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ class Cure : public AMateria
 	public:
 		Cure(void);
 		Cure(const Cure &source);
-		Cure(std::string const &type);
 		Cure &operator=(const Cure &source);
 		~Cure(void);
 		void use(ICharacter &target);
 		AMateria* clone(void) const;
+	private:
+		std::string _type;
 };
 
 #endif
