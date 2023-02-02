@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 21:57:49 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/02 21:18:36 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/02 21:38:46 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ Ice::~Ice(void)
 {
 	std::cout << "Cure destructor called" << std::endl;
 }
-
 
 void Ice::use(ICharacter &target)
 {

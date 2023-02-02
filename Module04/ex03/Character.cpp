@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 21:58:19 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/02 17:21:14 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/02 21:59:39 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,13 @@ Character::Character(void)
 {
 	int index;
 
-	index = -1;
+	index = 0;
 	this->_type = "Default Character";
-	while (this->inventory[++index])
+	while (index < 4)
+	{
 		this->inventory[index] = NULL;
+		index++;
+	}
 	std::cout << "Default Character constructor called" << std::endl;
 }
 
@@ -27,10 +30,13 @@ Character::Character(const Character &source)
 {
 	int index;
 
-	index = -1;
+	index = 0;
 	this->_type = source._type;
-	while (this->inventory[++index])
+	while (index < 4)
+	{
 		this->inventory[index] = source.inventory[index];
+		index++;
+	}
 	std::cout << "Character copy constructor called" << std::endl;
 }
 
@@ -38,10 +44,13 @@ Character::Character(std::string type)
 {
 	int index;
 
-	index = -1;
+	index = 0;
 	this->_type = type;
-	while (this->inventory[++index])
+	while (index < 4)
+	{
 		this->inventory[index] = NULL;
+		index++;
+	}
 	std::cout << "Character type constructor called" << std::endl;
 }
 
@@ -49,10 +58,13 @@ Character &Character::operator=(const Character &source)
 {
 	int index;
 
-	index = -1;
+	index = 0;
 	this->_type = source._type;
-	while (this->inventory[++index])
-		this->inventory[index] = source.inventory[index];
+	while (index < 4)
+	{
+		this->inventory[index] = NULL;
+		index++;
+	}
 	std::cout << "Character overload constructor called" << std::endl;
 	return (*this);
 }
@@ -61,10 +73,13 @@ Character::~Character(void)
 {
 	int index;
 
-	index = -1;
-	while (this->inventory[++index])
+	index = 0;
+	while (index < 4)
+	{
 		if (this->inventory[index])
 			delete this->inventory[index];
+		index++;
+	}
 	std::cout << "Character destructor called" << std::endl;
 }
 
@@ -77,14 +92,16 @@ void Character::equip(AMateria* m)
 {
 	int index;
 
-	index = -1;
-	while (this->inventory[++index])
+	index = 0;
+	while (index < 4)
 	{
+		std::cout << "--- Cycling Character Inventory" << std::endl;
 		if (this->inventory[index] == NULL)
 		{
 			this->inventory[index] = m;
 			break ;
 		}
+		index++;
 	}
 }
 

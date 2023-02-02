@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 21:57:52 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/02 19:11:50 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/02 21:32:59 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ class Ice : public AMateria
 		~Ice(void);
 		void use(ICharacter &target);
 		AMateria* clone(void) const;
-	private:
-		std::string _type;
 };
 
 std::string convertToTypeStr(std::string s);

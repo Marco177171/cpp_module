@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 19:13:37 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/02 21:15:27 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/02 21:34:52 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ AMateria::AMateria(void)
 AMateria::AMateria(const AMateria &source)
 {
 	this->_type = source._type;
-	std::cout << "AMateria default constructor called" << std::endl;
+	std::cout << "AMateria copy constructor called" << std::endl;
 }
 
 AMateria::AMateria(std::string const &type)
 {
 	this->_type = type;
-	std::cout << "AMateria copy constructor called" << std::endl;
+	std::cout << "AMateria type define constructor called" << std::endl;
 }
 
 AMateria &AMateria::operator=(const AMateria &source)

@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 22:13:41 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/02 21:13:34 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/02 21:50:09 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ MateriaSource::MateriaSource(void)
 {
 	int index;
 
-	index = -1;
-	while (this->_inventory[++index])
-		this->_inventory[index] = NULL;
+	index = 0;
+	while (index < 4)
+		this->_inventory[index++] = NULL;
 	std::cout << "Default MateriaSource constructor called" << std::endl;
 }
 
@@ -26,9 +26,12 @@ MateriaSource::MateriaSource(const MateriaSource &source)
 {
 	int index;
 
-	index = -1;
-	while (this->_inventory[++index])
+	index = 0;
+	while (index < 4)
+	{
 		this->_inventory[index] = (source._inventory[index])->clone();
+		index++;
+	}
 	std::cout << "MateriaSource copy constructor called" << std::endl;
 }
 
@@ -73,7 +76,7 @@ void MateriaSource::learnMateria(AMateria* m)
 	}
 	else
 		this->_inventory[index] = m;
-		std::cout << m->getType() << std::endl;
+		std::cout << m->getType() << " ïndex = " << index << std::endl;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
@@ -82,9 +85,9 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 
 	index = 0;
 	std::cout << "createMateria" << std::endl;
-	while (this->_inventory[index] && ((this->_inventory)[index])->getType().compare(type) != 0 && index < 5)
+	while (this->_inventory[index] && this->_inventory[index]->getType().compare(type) && index < 4)
 		index++;
-	if (index >= 5 || !(this->_inventory)[index])
+	if (index >= 4 || !(this->_inventory)[index])
 	{
 		std::cout << "return" << std::endl;
 		return (NULL);
