@@ -6,40 +6,33 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 19:13:37 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/02 21:34:52 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/03 17:45:47 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
 AMateria::AMateria(void)
-{
-	std::cout << "AMateria default constructor called" << std::endl;
-}
+{}
 
 AMateria::AMateria(const AMateria &source)
 {
 	this->_type = source._type;
-	std::cout << "AMateria copy constructor called" << std::endl;
 }
 
 AMateria::AMateria(std::string const &type)
 {
 	this->_type = type;
-	std::cout << "AMateria type define constructor called" << std::endl;
 }
 
 AMateria &AMateria::operator=(const AMateria &source)
 {
 	this->_type = source._type;
-	std::cout << "AMateria overload constructor called" << std::endl;
 	return (*this);
 }
 
 AMateria::~AMateria(void)
-{
-	std::cout << "AMateria default destructor called" << std::endl;
-}
+{}
 
 std::string const & AMateria::getType(void) const
 {
@@ -48,5 +41,8 @@ std::string const & AMateria::getType(void) const
 
 void AMateria::use(ICharacter &target)
 {
-	std::cout << "AMateria using " << target.getName() << std::endl;
+	if (this->_type.compare("ice") == 0)
+		std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+	else if (this->_type.compare("cure") == 0)
+		std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }

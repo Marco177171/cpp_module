@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 19:13:52 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/02 20:47:46 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/03 18:28:50 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,10 @@ int main(void) {
 	AMateria* tmp;
 
 	tmp = src->createMateria("ice");
-	std::cout << "---here" << std::endl;
-
-	std::cout << tmp->getType() << std::endl;
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
+
 	ICharacter* bob = new Character("bob");
 
 	me->use(0, *bob);
@@ -37,6 +35,32 @@ int main(void) {
 	delete bob;
 	delete me;
 	delete src;
+
+	std::cout << "PERSONAL TESTS (DROPPING)" << std::endl;
+
+	Character *jason = new Character("jason");
+	Character *target = new Character("target");
+	MateriaSource *ms = new MateriaSource();
+	ms->learnMateria(new Ice());
+	ms->learnMateria(new Cure());
+
+	AMateria *AM;
+
+	AM = ms->createMateria("ice");
+	jason->equip(AM);
+	AM = ms->createMateria("cure");
+	jason->equip(AM);
+
+	jason->use(0, *target);
+	jason->use(1, *target);
+
+	jason->unequip(0);
+	jason->unequip(1);
+
+	delete jason;
+	delete target;
+	delete AM;
+	delete ms;
 
 	return (0);
 }

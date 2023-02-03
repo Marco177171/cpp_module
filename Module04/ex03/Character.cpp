@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 21:58:19 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/02 21:59:39 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/03 18:56:49 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ Character::Character(void)
 		this->inventory[index] = NULL;
 		index++;
 	}
-	std::cout << "Default Character constructor called" << std::endl;
+	this->_dropped = new droppedMateria();
+	this->_dropped->_content = NULL;
+	this->_dropped->_head = NULL;
+	this->_dropped->_next = NULL;
 }
 
 Character::Character(const Character &source)
@@ -37,7 +40,10 @@ Character::Character(const Character &source)
 		this->inventory[index] = source.inventory[index];
 		index++;
 	}
-	std::cout << "Character copy constructor called" << std::endl;
+	this->_dropped = new droppedMateria();
+	this->_dropped->_content = NULL;
+	this->_dropped->_head = NULL;
+	this->_dropped->_next = NULL;
 }
 
 Character::Character(std::string type)
@@ -51,7 +57,10 @@ Character::Character(std::string type)
 		this->inventory[index] = NULL;
 		index++;
 	}
-	std::cout << "Character type constructor called" << std::endl;
+	this->_dropped = new droppedMateria();
+	this->_dropped->_content = NULL;
+	this->_dropped->_head = NULL;
+	this->_dropped->_next = NULL;
 }
 
 Character &Character::operator=(const Character &source)
@@ -65,13 +74,18 @@ Character &Character::operator=(const Character &source)
 		this->inventory[index] = NULL;
 		index++;
 	}
-	std::cout << "Character overload constructor called" << std::endl;
+	this->_dropped = new droppedMateria();
+	this->_dropped->_content = NULL;
+	this->_dropped->_head = NULL;
+	this->_dropped->_next = NULL;
 	return (*this);
 }
 
 Character::~Character(void)
 {
 	int index;
+	droppedMateria *cursor;
+	droppedMateria *cursor_one;
 
 	index = 0;
 	while (index < 4)
@@ -80,7 +94,13 @@ Character::~Character(void)
 			delete this->inventory[index];
 		index++;
 	}
-	std::cout << "Character destructor called" << std::endl;
+	cursor = this->_dropped;
+	while (cursor->_next)
+	{
+		cursor_one = cursor;
+		cursor = cursor->_next;
+		delete cursor_one;
+	}
 }
 
 std::string const &Character::getName() const
@@ -95,7 +115,6 @@ void Character::equip(AMateria* m)
 	index = 0;
 	while (index < 4)
 	{
-		std::cout << "--- Cycling Character Inventory" << std::endl;
 		if (this->inventory[index] == NULL)
 		{
 			this->inventory[index] = m;
@@ -107,10 +126,36 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
+	this->dropMateria(this->inventory[idx]);
 	this->inventory[idx] = NULL;
+	std::cout << "inventory slot nullified" << std::endl;
 }
 
 void Character::use(int idx, ICharacter& target)
 {
 	this->inventory[idx]->use(target);
+}
+
+void Character::dropMateria(AMateria *toDrop)
+{
+	droppedMateria *cursor;
+
+	std::cout << "in dropMateria" << std::endl;
+	if (!this->_dropped->_content)
+	{
+		std::cout << "empty" << std::endl;
+		this->_dropped->_content = toDrop;
+		this->_dropped->_next = new droppedMateria();
+		std::cout << this->_dropped->_content->getType() << " dropped by " << this->_type << std::endl;
+		return ;
+	}
+	while (this->_dropped->_next)
+	{
+		std::cout << "here" << std::endl;
+		cursor = this->_dropped->_next;
+		if (!cursor->_content)
+			break ;
+	}
+	cursor->_content = toDrop;
+	this->_dropped->_next = new droppedMateria();
 }
