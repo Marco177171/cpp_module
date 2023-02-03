@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 19:13:52 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/03 18:28:50 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/03 21:05:00 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ int main(void) {
 
 	std::cout << "PERSONAL TESTS (DROPPING)" << std::endl;
 
-	Character *jason = new Character("jason");
-	Character *target = new Character("target");
-	MateriaSource *ms = new MateriaSource();
+	ICharacter *jason = new Character("jason");
+	ICharacter *target = new Character("target");
+	IMateriaSource *ms = new MateriaSource();
 	ms->learnMateria(new Ice());
 	ms->learnMateria(new Cure());
 
@@ -50,12 +50,16 @@ int main(void) {
 	jason->equip(AM);
 	AM = ms->createMateria("cure");
 	jason->equip(AM);
+	AM = ms->createMateria("ice");
+	jason->equip(AM);
 
 	jason->use(0, *target);
 	jason->use(1, *target);
+	jason->use(2, *target);
 
 	jason->unequip(0);
 	jason->unequip(1);
+	jason->unequip(2);
 
 	delete jason;
 	delete target;

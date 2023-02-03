@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 21:58:19 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/03 18:56:49 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/03 21:04:29 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ Character &Character::operator=(const Character &source)
 		this->inventory[index] = NULL;
 		index++;
 	}
-	this->_dropped = new droppedMateria();
+	this->_dropped = source._dropped;
 	this->_dropped->_content = NULL;
 	this->_dropped->_head = NULL;
 	this->_dropped->_next = NULL;
@@ -85,7 +85,7 @@ Character::~Character(void)
 {
 	int index;
 	droppedMateria *cursor;
-	droppedMateria *cursor_one;
+	droppedMateria *tmp;
 
 	index = 0;
 	while (index < 4)
@@ -95,11 +95,11 @@ Character::~Character(void)
 		index++;
 	}
 	cursor = this->_dropped;
-	while (cursor->_next)
+	while (cursor)
 	{
-		cursor_one = cursor;
+		tmp = cursor;
 		cursor = cursor->_next;
-		delete cursor_one;
+		delete (tmp);
 	}
 }
 
@@ -157,5 +157,6 @@ void Character::dropMateria(AMateria *toDrop)
 			break ;
 	}
 	cursor->_content = toDrop;
+	std::cout << cursor->_content->getType() << " dropped by " << this->_type << std::endl;
 	this->_dropped->_next = new droppedMateria();
 }
