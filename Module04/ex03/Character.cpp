@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 21:58:19 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/03 21:04:29 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/06 15:26:10 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,7 @@ Character::Character(void)
 		this->inventory[index] = NULL;
 		index++;
 	}
-	this->_dropped = new droppedMateria();
-	this->_dropped->_content = NULL;
-	this->_dropped->_head = NULL;
-	this->_dropped->_next = NULL;
+	_dropped = NULL;
 }
 
 Character::Character(const Character &source)
@@ -40,10 +37,7 @@ Character::Character(const Character &source)
 		this->inventory[index] = source.inventory[index];
 		index++;
 	}
-	this->_dropped = new droppedMateria();
-	this->_dropped->_content = NULL;
-	this->_dropped->_head = NULL;
-	this->_dropped->_next = NULL;
+	_dropped = NULL;
 }
 
 Character::Character(std::string type)
@@ -57,10 +51,7 @@ Character::Character(std::string type)
 		this->inventory[index] = NULL;
 		index++;
 	}
-	this->_dropped = new droppedMateria();
-	this->_dropped->_content = NULL;
-	this->_dropped->_head = NULL;
-	this->_dropped->_next = NULL;
+	_dropped = NULL;
 }
 
 Character &Character::operator=(const Character &source)
@@ -74,18 +65,14 @@ Character &Character::operator=(const Character &source)
 		this->inventory[index] = NULL;
 		index++;
 	}
-	this->_dropped = source._dropped;
-	this->_dropped->_content = NULL;
-	this->_dropped->_head = NULL;
-	this->_dropped->_next = NULL;
+	_dropped = NULL;
 	return (*this);
 }
 
 Character::~Character(void)
 {
 	int index;
-	droppedMateria *cursor;
-	droppedMateria *tmp;
+	dropped *tmp;
 
 	index = 0;
 	while (index < 4)
@@ -94,12 +81,15 @@ Character::~Character(void)
 			delete this->inventory[index];
 		index++;
 	}
-	cursor = this->_dropped;
-	while (cursor)
+	if (_dropped)
 	{
-		tmp = cursor;
-		cursor = cursor->_next;
-		delete (tmp);
+		while (_dropped)
+		{
+			tmp = _dropped;
+			_dropped = _dropped->_next;
+			delete(tmp->_content);
+			delete(tmp);
+		}
 	}
 }
 
@@ -138,25 +128,35 @@ void Character::use(int idx, ICharacter& target)
 
 void Character::dropMateria(AMateria *toDrop)
 {
-	droppedMateria *cursor;
-
 	std::cout << "in dropMateria" << std::endl;
-	if (!this->_dropped->_content)
-	{
-		std::cout << "empty" << std::endl;
-		this->_dropped->_content = toDrop;
-		this->_dropped->_next = new droppedMateria();
-		std::cout << this->_dropped->_content->getType() << " dropped by " << this->_type << std::endl;
-		return ;
+	dropped	*newDrop = new dropped();
+	newDrop->_content = toDrop;
+	std::cout << "NULL" << std::endl;
+	newDrop->_next = NULL;
+	if (_dropped == NULL)
+		_dropped = newDrop;
+	else {
+		dropped *tmp = _dropped;
+		while (tmp->_next)
+			tmp = tmp->_next;
+		tmp->_next = newDrop;
 	}
-	while (this->_dropped->_next)
-	{
-		std::cout << "here" << std::endl;
-		cursor = this->_dropped->_next;
-		if (!cursor->_content)
-			break ;
-	}
-	cursor->_content = toDrop;
-	std::cout << cursor->_content->getType() << " dropped by " << this->_type << std::endl;
-	this->_dropped->_next = new droppedMateria();
+	// if (!this->_dropped->_content)
+	// {
+	// 	std::cout << "empty" << std::endl;
+	// 	this->_dropped->_content = toDrop;
+	// 	this->_dropped->_next = new droppedMateria();
+	// 	std::cout << this->_dropped->_content->getType() << " dropped by " << this->_type << std::endl;
+	// 	return ;
+	// }
+	// while (this->_dropped->_next)
+	// {
+	// 	std::cout << "here" << std::endl;
+	// 	cursor = this->_dropped->_next;
+	// 	if (!cursor->_content)
+	// 		break ;
+	// }
+	// cursor->_content = toDrop;
+	// std::cout << cursor->_content->getType() << " dropped by " << this->_type << std::endl;
+	// this->_dropped->_next = new droppedMateria();
 }

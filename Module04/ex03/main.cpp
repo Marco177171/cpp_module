@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 19:13:52 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/03 21:05:00 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/06 15:03:03 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int main(void) {
 
 	delete jason;
 	delete target;
-	delete AM;
+	// delete AM;
 	delete ms;
 
 	return (0);
