@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 17:02:11 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/07 17:56:12 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/07 19:56:52 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,6 @@ class Form {
 		const std::string getName(void) const;
 		int getGradeToSign(void) const;
 		int getGradeToExecute(void) const;
-		void increaseExe(void);
-		void decreaseExe(void);
-		void increaseSign(void);
-		void decreaseSign(void);
 		void beSigned(Bureaucrat &bureau);
 		bool isValid(void);
 	private:

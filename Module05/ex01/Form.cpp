@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 17:02:06 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/07 18:01:08 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/07 20:01:04 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,6 @@ Form::Form(const Form &source) : _name(source._name), _gradeToSign(source._grade
 
 Form &Form::operator=(const Form &source)
 {
-	this->_name = source.getName();
-	this->_isSigned = source._isSigned;
-	this->_gradeToSign = source.getGradeToSign();
-	this->_gradeToExecute = source.getGradeToExecute();
 	return (*this);
 }
 
@@ -74,28 +70,6 @@ int Form::getGradeToExecute(void) const
 	return (this->_gradeToExecute);
 }
 
-void Form::increaseExe(void)
-{
-	this->_gradeToExecute--;
-	std::cout << this->_name << "'s grade decreased. New Grade: " << this->_gradeToExecute << std::endl;
-	if (!this->isValid())
-	{
-		throw GradeTooHighException();
-		this->~Form();
-	}
-}
-
-void Form::decreaseExe(void)
-{
-	this->_gradeToExecute++;
-	std::cout << this->_name << "'s grade decreased. New Grade: " << this->_gradeToExecute << std::endl;
-	if (!this->isValid())
-	{
-		throw GradeTooLowException();
-		this->~Form();
-	}
-}
-
 bool Form::isValid(void)
 {
 	if (this->_gradeToSign > 150 || this->_gradeToSign < 1
@@ -106,7 +80,7 @@ bool Form::isValid(void)
 
 void Form::beSigned(Bureaucrat &bureau)
 {
-	if (this->_isSigned = true)
+	if (this->_isSigned == true)
 	{
 		std::cout << bureau.getName() << " couldn't sign " << this->_name << " because it is already signed" << std::endl;
 		return ;
