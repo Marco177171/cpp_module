@@ -6,18 +6,18 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 17:02:06 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/08 17:56:21 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/08 19:31:17 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form(void) : _name("Default Form"), _gradeToSign(100), _gradeToExecute(100)
+Form::Form(void) : _name("Default Form"), _target("Default Form Target"), _gradeToSign(100), _gradeToExecute(100)
 {
 	this->_isSigned = false;
 }
 
-Form::Form(int gradeToSign) : _name("Defined Grade Form"), _gradeToSign(gradeToSign), _gradeToExecute(100)
+Form::Form(int gradeToSign) : _name("Defined Grade Form"), _target("Grade form Target"), _gradeToSign(gradeToSign), _gradeToExecute(100)
 {
 	this->_isSigned = false;
 	if (this->_gradeToSign > 150)
@@ -26,13 +26,13 @@ Form::Form(int gradeToSign) : _name("Defined Grade Form"), _gradeToSign(gradeToS
 		throw GradeTooHighException();
 }
 
-Form::Form(std::string const name) : _name(name), _gradeToSign(100), _gradeToExecute(100)
+Form::Form(std::string const name) : _name(name), _target("Name Form Target"), _gradeToSign(100), _gradeToExecute(100)
 {
 	std::cout << "Defined Name Form" << std::endl;
 	this->_isSigned = false;
 }
 
-Form::Form(std::string const name, int gradeToSign) : _name(name), _gradeToSign(gradeToSign), _gradeToExecute(100)
+Form::Form(std::string const name, int gradeToSign) : _name(name), _target("Name/Grade Form Target"), _gradeToSign(gradeToSign), _gradeToExecute(100)
 {
 	this->_isSigned = false;
 	if (this->_gradeToSign > 150)
@@ -41,7 +41,7 @@ Form::Form(std::string const name, int gradeToSign) : _name(name), _gradeToSign(
 		throw GradeTooHighException();
 }
 
-Form::Form(const Form &source) : _name(source._name), _gradeToSign(source._gradeToSign), _gradeToExecute(100)
+Form::Form(const Form &source) : _name(source._name), _target(source._target), _gradeToSign(source._gradeToSign), _gradeToExecute(100)
 {
 	std::cout << "Copy Form constructor called" << std::endl;
 	this->_isSigned = false;
@@ -63,6 +63,21 @@ Form::~Form(void)
 const std::string Form::getName(void) const
 {
 	return (this->_name);
+}
+
+void Form::setName(std::string const name)
+{
+	*this = *new(this) Form(name);
+}
+
+const std::string Form::getTarget(void) const
+{
+	return (this->_target);
+}
+
+void Form::setTarget(std::string const target) const
+{
+	*this = *new(this) Form() : _target(target);
 }
 
 int Form::getGradeToSign(void) const

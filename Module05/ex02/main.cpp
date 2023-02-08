@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 18:56:49 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/08 17:57:40 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/08 18:11:38 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ int main(void)
 	highGradeBureau.signForm(president);
 	highGradeBureau.executeForm(shrub);
 	highGradeBureau.executeForm(president);
+	highGradeBureau.executeForm(robot);
+	highGradeBureau.executeForm(robot);
 	return (0);
 }

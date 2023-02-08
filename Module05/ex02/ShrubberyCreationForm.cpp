@@ -6,13 +6,13 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:42:12 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/08 17:46:17 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/08 18:13:40 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(void) : _name("Default Shrubbery Creation Form"), _gradeToSign(145), _gradeToExecute(137)
+ShrubberyCreationForm::ShrubberyCreationForm(void) : _name("Default Shrubbery Creation Form"), _target("Default Shrub Form Target"), _gradeToSign(145), _gradeToExecute(137)
 {
 	std::cout << "Default ShrubberyCreationForm constructor called" << std::endl;
 }

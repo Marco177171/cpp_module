@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 17:02:11 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/08 17:54:18 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/08 19:28:37 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,13 @@ class Form {
 		virtual ~Form(void);
 		Form &operator=(const Form &source);
 		const std::string getName(void) const;
+		void setName(std::string name);
+		const std::string getTarget(void) const;
+		void setTarget(std::string const target) const;
 		int getGradeToSign(void) const;
+		void setGradeToSign(int gradeToSign) const;
 		int getGradeToExecute(void) const;
+		void setGradeToExecute(int gradeToExecute) const;
 		void beSigned(Bureaucrat &bureau);
 		void execute(Bureaucrat const &executor) const;
 		bool isValid(void);
@@ -35,6 +40,7 @@ class Form {
 	private:
 		bool _isSigned;
 		std::string const _name;
+		std::string const _target;
 		int const _gradeToSign;
 		int const _gradeToExecute;
 		class GradeTooLowException : public std::exception

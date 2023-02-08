@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:42:01 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/08 17:31:04 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/08 18:16:50 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,6 @@ class PresidentialPardonForm : public Form {
 					return ("PresidentialPardonForm Exception: grade too high");
 				}
 		};
-	private:
-		std::string const _name;
-		int const _gradeToSign;
-		int const _gradeToExecute;
 };
 
 std::ostream &operator<<(std::ostream &out, PresidentialPardonForm const &toStream);

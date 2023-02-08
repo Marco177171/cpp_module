@@ -6,23 +6,23 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:42:04 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/08 17:47:31 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/08 18:13:11 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(void) : _name("Default Robotomy Request Form"), _gradeToSign(72), _gradeToExecute(45)
+RobotomyRequestForm::RobotomyRequestForm(void) : _name("Default Robotomy Request Form"), _target("Def Robot Form Target"), _gradeToSign(72), _gradeToExecute(45)
 {
 	std::cout << "Default RobotomyRequestForm constructor called" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string const name) : _name(name), _gradeToSign(72), _gradeToExecute(45)
+RobotomyRequestForm::RobotomyRequestForm(std::string const name) : _name(name), _target("Name Robot Form Target"), _gradeToSign(72), _gradeToExecute(45)
 {
 	std::cout << "Name Robotomy Request Form constructor called" << std::endl;
 }
  
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &source) : _name(source._name), _gradeToSign(source._gradeToSign), _gradeToExecute(source._gradeToExecute)
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &source) : _name(source._name), _target(source._target), _gradeToSign(source._gradeToSign), _gradeToExecute(source._gradeToExecute)
 {
 	std::cout << "Operator constructor called" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:42:18 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/08 17:40:32 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/08 18:17:00 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,6 @@ class ShrubberyCreationForm : public Form {
 					return ("ShrubberyCreationForm Exception: grade too high");
 				}
 		};
-	private:
-		std::string const _name;
-		int const _gradeToSign;
-		int const _gradeToExecute;
 };
 
 std::ostream &operator<<(std::ostream &out, ShrubberyCreationForm const &toStream);
