@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 17:02:06 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/08 14:39:43 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/08 14:33:56 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,15 @@ bool Form::isValid(void)
 
 void Form::beSigned(Bureaucrat &bureau)
 {
-	this->_isSigned = true;
-	std::cout << bureau.getName() << " signed " << this->_name << std::endl;
+	if (bureau.getGrade() > this->_gradeToSign)
+		std::cout << bureau.getName() << " couldn't sign the form because his grade is too low" << std::endl;
+	else if (this->getSigned() == true)
+		std::cout << bureau.getName() << " couldn't sign the form because it is already signed" << std::endl;
+	else
+	{
+		this->_isSigned = true;
+		std::cout << bureau.getName() << " signed " << this->_name << std::endl;
+	}
 }
 
 std::ostream &operator<<(std::ostream &out, Form const &toStream)
