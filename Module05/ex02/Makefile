@@ -1,6 +1,6 @@
 NAME = FormUpMaggots!
 FLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
-SRCS = main.cpp Form.cpp Bureaucrat.cpp
+SRCS = main.cpp Form.cpp Bureaucrat.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 $(NAME):

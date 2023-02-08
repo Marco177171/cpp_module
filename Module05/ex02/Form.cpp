@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 17:02:06 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/08 16:39:40 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/08 17:56:21 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int Form::getGradeToExecute(void) const
 	return (this->_gradeToExecute);
 }
 
-bool Form::getSigned(void)
+bool Form::getSigned(void) const
 {
 	return (this->_isSigned);
 }
@@ -91,9 +91,9 @@ bool Form::isValid(void)
 void Form::beSigned(Bureaucrat &bureau)
 {
 	if (bureau.getGrade() > this->_gradeToSign)
-		std::cout << bureau.getName() << " couldn't sign the form because his grade is too low" << std::endl;
+		std::cout << bureau.getName() << " couldn't sign " << this->_name << " because his grade is too low" << std::endl;
 	else if (this->getSigned() == true)
-		std::cout << bureau.getName() << " couldn't sign the form because it is already signed" << std::endl;
+		std::cout << bureau.getName() << " couldn't sign " << this->_name << " because it is already signed" << std::endl;
 	else
 	{
 		this->_isSigned = true;
@@ -101,7 +101,7 @@ void Form::beSigned(Bureaucrat &bureau)
 	}
 }
 
-void Form::execute(Bureaucrat const &executor)
+void Form::execute(Bureaucrat const &executor) const
 {
 	std::cout << executor.getName() << " executed " << this->_name << std::endl;
 }
