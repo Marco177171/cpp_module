@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 15:39:20 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/07 17:57:47 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/08 14:02:18 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Bureaucrat::Bureaucrat(std::string const name) : _name(name)
 	this->_grade = 100;
 }
 
-Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(grade)
+Bureaucrat::Bureaucrat(std::string const name, int const grade) : _name(name), _grade(grade)
 {
 	this->_grade = grade;
 	if (this->_grade > 150)
@@ -49,7 +49,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &source)
 
 Bureaucrat::~Bureaucrat(void)
 {
-	std::cout << this->_name << " destructor called" << std::endl;
+	std::cout << this->_name << "'s destructor called" << std::endl;
 }
 
 std::string Bureaucrat::getName(void) const
@@ -93,7 +93,10 @@ bool Bureaucrat::isValid(void)
 
 void Bureaucrat::signForm(Form &form)
 {
-	form.beSigned(*this);
+	if (form.getSigned() == true)
+		std::cout << this->getName() << " couldn't sign " << form.getName() << " because it is already signed" << std::endl;
+	else
+		form.beSigned(*this);
 }
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &toStream)

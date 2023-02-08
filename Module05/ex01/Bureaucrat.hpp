@@ -6,13 +6,14 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 15:39:29 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/07 17:56:05 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/08 14:20:43 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 # include <iostream>
+class Bureaucrat;
 # include "Form.hpp"
 
 class Bureaucrat {

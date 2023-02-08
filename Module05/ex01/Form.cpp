@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 17:02:06 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/07 20:01:04 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/08 14:33:56 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Form::Form(void) : _name("Default Form"), _gradeToSign(100), _gradeToExecute(100
 	this->_isSigned = false;
 }
 
-Form::Form(int gradeToSign) : _name("Copy Form"), _gradeToSign(gradeToSign), _gradeToExecute(100)
+Form::Form(int gradeToSign) : _name("Defined Grade Form"), _gradeToSign(gradeToSign), _gradeToExecute(100)
 {
 	this->_isSigned = false;
 	if (this->_gradeToSign > 150)
@@ -28,6 +28,7 @@ Form::Form(int gradeToSign) : _name("Copy Form"), _gradeToSign(gradeToSign), _gr
 
 Form::Form(std::string const name) : _name(name), _gradeToSign(100), _gradeToExecute(100)
 {
+	std::cout << "Defined Name Form" << std::endl;
 	this->_isSigned = false;
 }
 
@@ -42,11 +43,15 @@ Form::Form(std::string const name, int gradeToSign) : _name(name), _gradeToSign(
 
 Form::Form(const Form &source) : _name(source._name), _gradeToSign(source._gradeToSign), _gradeToExecute(100)
 {
+	std::cout << "Copy Form constructor called" << std::endl;
 	this->_isSigned = false;
 }
 
 Form &Form::operator=(const Form &source)
 {
+	if (this == &source)
+		return (*this);
+	this->_isSigned = false;
 	return (*this);
 }
 
@@ -70,6 +75,11 @@ int Form::getGradeToExecute(void) const
 	return (this->_gradeToExecute);
 }
 
+bool Form::getSigned(void)
+{
+	return (this->_isSigned);
+}
+
 bool Form::isValid(void)
 {
 	if (this->_gradeToSign > 150 || this->_gradeToSign < 1
@@ -80,11 +90,10 @@ bool Form::isValid(void)
 
 void Form::beSigned(Bureaucrat &bureau)
 {
-	if (this->_isSigned == true)
-	{
-		std::cout << bureau.getName() << " couldn't sign " << this->_name << " because it is already signed" << std::endl;
-		return ;
-	}
+	if (bureau.getGrade() > this->_gradeToSign)
+		std::cout << bureau.getName() << " couldn't sign the form because his grade is too low" << std::endl;
+	else if (this->getSigned() == true)
+		std::cout << bureau.getName() << " couldn't sign the form because it is already signed" << std::endl;
 	else
 	{
 		this->_isSigned = true;

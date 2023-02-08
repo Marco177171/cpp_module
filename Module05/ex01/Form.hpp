@@ -6,13 +6,14 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 17:02:11 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/07 19:56:52 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/08 14:20:38 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 # define FORM_HPP
 # include <iostream>
+class Form;
 # include "Bureaucrat.hpp"
 
 class Form {
@@ -29,6 +30,7 @@ class Form {
 		int getGradeToExecute(void) const;
 		void beSigned(Bureaucrat &bureau);
 		bool isValid(void);
+		bool getSigned(void);
 	private:
 		bool _isSigned;
 		std::string const _name;
