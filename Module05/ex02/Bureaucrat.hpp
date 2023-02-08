@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 15:39:29 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/08 14:20:43 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/08 16:23:57 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Bureaucrat {
 		void decrease(void);
 		bool isValid(void);
 		void signForm(Form &form);
+		void executeForm(Form const &form);
 		class GradeTooLowException : public std::exception
 		{
 			public:

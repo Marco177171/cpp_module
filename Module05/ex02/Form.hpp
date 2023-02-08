@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 17:02:11 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/08 14:20:38 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/08 16:35:53 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,13 @@ class Form {
 		Form(std::string const name);
 		Form(std::string const name, int const grade);
 		Form(const Form &source);
-		~Form(void);
+		virtual ~Form(void);
 		Form &operator=(const Form &source);
 		const std::string getName(void) const;
 		int getGradeToSign(void) const;
 		int getGradeToExecute(void) const;
 		void beSigned(Bureaucrat &bureau);
+		void execute(Bureaucrat const &executor);
 		bool isValid(void);
 		bool getSigned(void);
 	private:

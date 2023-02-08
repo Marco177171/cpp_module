@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 17:02:06 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/08 14:33:56 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/08 16:39:40 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,11 @@ void Form::beSigned(Bureaucrat &bureau)
 		this->_isSigned = true;
 		std::cout << bureau.getName() << " signed " << this->_name << std::endl;
 	}
+}
+
+void Form::execute(Bureaucrat const &executor)
+{
+	std::cout << executor.getName() << " executed " << this->_name << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &out, Form const &toStream)
