@@ -1,6 +1,7 @@
 NAME = accounts
-FLAGS = -Wall -Wextra -Werror -std=c++11
+FLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = Account.cpp tests.cpp
+OBJS = $(SRCS:.cpp=.o)
 
 $(NAME):
 	g++ $(FLAGS) $(SRCS) -o $(NAME)
@@ -8,9 +9,11 @@ $(NAME):
 all: $(NAME)
 
 clean:
-	rm -rf *.o *.gch
+	rm -f $(OBJS)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: $(NAME) clean fclean all

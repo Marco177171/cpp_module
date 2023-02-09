@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 17:02:11 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/08 19:28:37 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/09 15:48:25 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,18 @@ class Form;
 class Form {
 	public:
 		Form(void);
-		Form(int const grade);
+		Form(std::string const target);
 		Form(std::string const name);
-		Form(std::string const name, int const grade);
+		Form(std::string const name, std::string const target);
+		Form(std::string const name, std::string const target, int const _gradeToSign, int const _gradeToExecute);
 		Form(const Form &source);
 		virtual ~Form(void);
 		Form &operator=(const Form &source);
 		const std::string getName(void) const;
 		void setName(std::string name);
 		const std::string getTarget(void) const;
-		void setTarget(std::string const target) const;
 		int getGradeToSign(void) const;
-		void setGradeToSign(int gradeToSign) const;
 		int getGradeToExecute(void) const;
-		void setGradeToExecute(int gradeToExecute) const;
 		void beSigned(Bureaucrat &bureau);
 		void execute(Bureaucrat const &executor) const;
 		bool isValid(void);

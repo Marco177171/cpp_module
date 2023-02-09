@@ -6,13 +6,13 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:41:48 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/08 18:11:36 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/09 15:44:12 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(void) : _name("Default Presidential Pardon Form"), _target("Def Pres Form Target"), _gradeToSign(25), _gradeToExecute(5)
+PresidentialPardonForm::PresidentialPardonForm(void) : Form("Default Presidential Pardon Form"), _target("Def Pres Form Target"), _gradeToSign(25), _gradeToExecute(5)
 {
 	std::cout << "Default PresidentialPardonForm constructor called" << std::endl;
 }

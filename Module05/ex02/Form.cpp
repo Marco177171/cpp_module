@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 17:02:06 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/08 19:31:17 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/09 15:46:12 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,19 +65,9 @@ const std::string Form::getName(void) const
 	return (this->_name);
 }
 
-void Form::setName(std::string const name)
-{
-	*this = *new(this) Form(name);
-}
-
 const std::string Form::getTarget(void) const
 {
 	return (this->_target);
-}
-
-void Form::setTarget(std::string const target) const
-{
-	*this = *new(this) Form() : _target(target);
 }
 
 int Form::getGradeToSign(void) const

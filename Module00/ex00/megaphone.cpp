@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 18:36:00 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/09 16:13:21 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/09 14:51:56 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 	char *str;
 
 	arg_index = 0;
-	if (argv[1])
+	if (argc == 2 && argv[1])
 	{
 		while (argv[++arg_index])
 		{

@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 16:56:40 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/09 16:56:41 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/09 16:14:19 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,8 +135,7 @@ void Account::displayStatus(void) const
 {
 	Account::_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";";
-	std::cout << "index:" << this->_amount << ";";
-	std::cout << "index:" << this->_nbDeposits << ";";
-	std::cout << "index:" << this->_nbWithdrawals << std::endl;
+	std::cout << "amount:" << this->_amount << ";";
+	std::cout << "deposits:" << this->_nbDeposits << ";";
+	std::cout << "withdrawals:" << this->_nbWithdrawals << std::endl;
 }
-
