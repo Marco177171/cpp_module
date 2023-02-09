@@ -1,6 +1,6 @@
-NAME = NoYouNeed
+NAME = Intern
 FLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
-SRCS = main.cpp Form.cpp Bureaucrat.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
+SRCS = main.cpp Intern.cpp Form.cpp Bureaucrat.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 $(NAME):
