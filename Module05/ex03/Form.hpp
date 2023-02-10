@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 17:02:11 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/09 16:50:16 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/10 15:24:03 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ class Form {
 	public:
 		Form(void);
 		Form(int const gradeToSign);
-		Form(std::string const name);
+		// Form(std::string const name);
+		Form(std::string const target);
 		Form(std::string const name, std::string const target);
 		Form(std::string const name, std::string const target, int const gradeToSign, int const gradeToExecute);
 		Form(const Form &source);

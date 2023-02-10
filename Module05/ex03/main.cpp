@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 18:56:49 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/09 18:49:40 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/10 15:34:55 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 int main(void)
 {
 	Intern someRandomIntern;
-	Intern copy = someRandomIntern;
 	Form* rrf;
 	Form* president;
 	Form* shrubbery;
@@ -28,15 +27,24 @@ int main(void)
 	Form* copy2;
 	Form* copy3;
 
-	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	std::cout << "-- DECLARATIONS GONE. FORMS CREATIONS: --" << std::endl;
+	rrf = someRandomIntern.makeForm("Robotomy Request Form", "Bender");
 	notValid = someRandomIntern.makeForm("fantasy form", "Giovanni");
-	president = someRandomIntern.makeForm("Presidential Pardon form", "Francesco");
-	shrubbery = someRandomIntern.makeForm("Shrubbery Request Form", "Paolo");
+	president = someRandomIntern.makeForm("Presidential Pardon Form", "Francesco");
+	shrubbery = someRandomIntern.makeForm("Shrubbery Creation Form", "Paolo");
 
+	Intern copy = someRandomIntern;
 	copy1 = copy.makeForm("fantasy form", "Giovanni");
-	copy2 = copy.makeForm("Presidential Pardon form", "Francesco");
-	copy3 = copy.makeForm("Shrubbery Request Form", "Paolo");
+	copy2 = copy.makeForm("Presidential Pardon Form", "Francesco");
+	copy3 = copy.makeForm("Shrubbery Creation Form", "Paolo");
 
-	// delete &copy;
+	std::cout << "-- FREE MEMORY: --" << std::endl;
+	delete (rrf);
+	delete (president);
+	delete (shrubbery);
+	delete (copy1);
+	delete (copy2);
+	delete (copy3);
+
 	return (0);
 }

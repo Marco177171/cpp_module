@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 17:43:48 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/09 18:32:45 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/10 15:28:01 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,9 @@
 # define INTERN_HPP
 # include <iostream>
 # include "Form.hpp"
-
-std::string const _forms[3] = {
-	"ShrubberyCreationForm",
-	"RobotomyRequestForm",
-	"PresidentialPardonForm"
-};
+# include "ShrubberyCreationForm.hpp"
+# include "PresidentialPardonForm.hpp"
+# include "RobotomyRequestForm.hpp"
 
 class Intern {
 	public:
@@ -30,10 +27,18 @@ class Intern {
 		~Intern(void);
 		int getNForms(void) const;
 		int getIndex(void) const;
+		void searchForm(std::string name);
 		Form *makeForm(std::string formName, std::string formTarget);
+		class NoExistingForm : public std::exception
+		{
+			virtual const char * what() const throw()
+			{
+				return ("There are no forms names like that");
+			}
+		};
 	private:
 		int const _nForms;
-		int const _index;
+		int _index;
 		static std::string const _forms[3];
 };
 

@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 17:02:06 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/09 16:54:07 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/10 15:24:20 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,12 @@ Form::Form(int const gradeToSign) : _name("Defined Grade Form"), _target("Define
 	this->_isSigned = false;
 }
 		
-Form::Form(std::string const name) : _name(name), _target("Name Form Target"), _gradeToSign(100), _gradeToExecute(100)
+// Form::Form(std::string const name) : _name(name), _target("Name Form Target"), _gradeToSign(100), _gradeToExecute(100)
+// {
+// 	this->_isSigned = false;
+// }
+
+Form::Form(std::string const target) : _name("Target Form"), _target(target), _gradeToSign(100), _gradeToExecute(100)
 {
 	this->_isSigned = false;
 }
