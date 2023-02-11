@@ -1,6 +1,6 @@
 NAME = Serialization
 FLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
-SRCS = main.cpp
+SRCS = main.cpp Data.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 $(NAME):
