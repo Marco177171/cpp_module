@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 12:08:27 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/11 12:46:12 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/11 14:21:15 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ uintptr_t serialize(Data *ptr)
 {
 	uintptr_t result;
 
-	std::cout << "serilize called" << std::endl;
+	std::cout << "serilize called on " << ptr << " | value: " << ptr->getValue() << std::endl;
 	result = reinterpret_cast<uintptr_t>(ptr);
 	std::cout << "uintptr_t: " << &result << std::endl;
 	return (result);
@@ -59,8 +59,8 @@ Data *deserialize(uintptr_t raw)
 {
 	Data *result;
 
-	std::cout << "deserialize called" << std::endl;
+	std::cout << "deserialize called on " << raw << std::endl;
 	result = reinterpret_cast<Data*>(raw);
-	std::cout << "Data: " << result << std::endl;
+	std::cout << "pointer to Data: " << result << std::endl;
 	return (result);
 }

@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/10 18:15:21 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/11 14:25:52 by masebast         ###   ########.fr       */
+/*   Created: 2023/02/11 16:02:52 by masebast          #+#    #+#             */
+/*   Updated: 2023/02/11 16:38:11 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Data.hpp"
+#ifndef ID_HPP
+# define ID_HPP
+# include <iostream>
+# include <cstdlib>
+# include <cstdint>
 
-int error(std::string err)
-{
-	std::cout << err << std::endl;
-	return (1);
-}
+class Base {
+	public:
+		virtual ~Base();
+};
 
-int main(int argc, char *argv[])
-{
-	Data data;
-	uintptr_t serialized;
+class A : public Base {
+};
 
-	if (argc != 2)
-		return (error("Error: I need exactly one argument"));
-	data = Data(std::atoi(argv[1]));
-	serialized = serialize(&data);
-	deserialize(serialized);
-	return (0);
-}
+class B : public Base {
+};
+
+class C : public Base {
+};
+
+Base *generate(void);
+void identify(Base *p); // prints the actual type of the object
+void identify(Base &p); // prints the actual type of the object
+
+#endif
