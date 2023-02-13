@@ -6,11 +6,10 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 13:50:39 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/13 14:59:17 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/13 16:12:03 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include <Array.hpp>
 
 #define MAX_VAL 750
