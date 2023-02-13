@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 13:50:46 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/13 16:41:59 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/13 17:50:39 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ Array<T>::~Array(void)
 {
 	if (this->_array)
 		delete[] this->_array;
-	std::cout << "Destructor constructor called" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 }
 
 template <typename T>
@@ -44,7 +44,7 @@ Array<T> &Array<T>::operator=(Array const &source)
 	int index;
 
 	index = -1;
-	while (source[index])
+	while (source._array[index])
 		this->_array[index] = source._array[index];
 	std::cout << "Operator overload constructor called" << std::endl;
 	return (*this);
@@ -53,16 +53,22 @@ Array<T> &Array<T>::operator=(Array const &source)
 template <typename T>
 T &Array<T>::operator[](int n)
 {
+	int index;
+
+	index = 0;
+	std::cout << "[] operator overflow called" << std::endl;
 	try
 	{
-
+		while (this->_array[index])
+			index++;
+		this->_array[index] = n;
 	}
-	throw ();
-	std::cout << "[] operator overflow called" << std::endl;
+	catch (const IndexOut &e) {};
+	return (this->_array[index]);
 }
 
 template <typename T>
-int Array<T>::size(void)
+int Array<T>::size(void) const
 {
 	int index;
 

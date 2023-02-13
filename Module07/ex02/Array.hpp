@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 13:50:52 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/13 16:38:50 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/13 17:07:56 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ class Array {
 		~Array(void);
 		Array &operator=(Array const &source);
 		T &operator[](int n);
-		int size(void);
+		int size(void) const;
 		class IndexOut : public std::exception {
 			public:
 				virtual const char * what() const throw()
 				{
 					return ("Index out of bound");
 				}
-		}
+		};
 	private:
 		T *_array;
 };

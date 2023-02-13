@@ -1,4 +1,4 @@
-NAME = Arrray
+NAME = Array
 FLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
 SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
