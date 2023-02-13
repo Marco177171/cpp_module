@@ -5,26 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 12:59:02 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/13 13:25:53 by masebast         ###   ########.fr       */
+/*   Created: 2023/02/13 13:24:33 by masebast          #+#    #+#             */
+/*   Updated: 2023/02/13 13:47:00 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "whatever.hpp"
+#include "iter.hpp"
 
 int main(void)
 {
-	int a = 2;
-	int b = 3;
-	::swap(a, b);
-	std::cout << "a = " << a << ", b = " << b << std::endl;
-	std::cout << "min( a, b ) = " << ::min(a, b) << std::endl;
-	std::cout << "max( a, b ) = " << ::max(a, b) << std::endl;
-	std::string c = "chaine1";
-	std::string d = "chaine2";
-	::swap(c, d);
-	std::cout << "c = " << c << ", d = " << d << std::endl;
-	std::cout << "min( c, d ) = " << ::min(c, d) << std::endl;
-	std::cout << "max( c, d ) = " << ::max(c, d) << std::endl;
-	return 0;
+	int length = 5;
+	int arrInt[] = {1, 2, 3, 4, 5};
+	double arrDouble[] = {1.1, 2.2, 3.3, 4.4, 5.5};
+	float arrFloat[] = {1.1f, 2.2f, 3.3f, 4.4f, 5.5f};
+
+	iter (arrInt, length, &print);
+	iter (arrDouble, length, &print);
+	iter (arrFloat, length, &print);
+
+	return (0);
 }
