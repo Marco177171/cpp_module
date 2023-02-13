@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   Array.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 13:24:39 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/13 14:32:23 by masebast         ###   ########.fr       */
+/*   Created: 2023/02/13 14:39:22 by masebast          #+#    #+#             */
+/*   Updated: 2023/02/13 14:42:26 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-# define ITER_HPP
-# include <iostream>
+// #include "Array.hpp"
 
-template <typename T>
-void iter (T *array, size_t length, void (*func)(T&)) {
-	size_t index;
+// Array::Array(void)
+// {}
 
-	index = 0;
-	while (index < length)
-	{
-		func(array[index]);
-		index++;
-	}
-};
+// Array::Array(unsigned int n)
+// {}
 
-template <typename T>
-void print (T &toPrint)
-{
-	std::cout << toPrint << std::endl;
-}
+// Array::Array(Array const &source)
+// {}
 
-#endif
+// Array::~Array(void)
+// {}
+
+// Array &Array::operator=(Array const &cource)
+// {}
+
+// Array &Array::operator[]()
+// {}
+
+// int Array::size()
+// {}
