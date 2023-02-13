@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 13:50:52 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/13 14:54:33 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/13 15:22:40 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,5 @@ class Array {
 			return (index);
 		};
 	private:
-		int *_array = new[n] Array;
+		T *_array = new[n] Array;
 };
