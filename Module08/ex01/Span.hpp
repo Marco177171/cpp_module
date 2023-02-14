@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:30:17 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/14 16:03:33 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/14 17:19:25 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,30 +22,32 @@ class Span {
 		Span(Span const &source);
 		Span &operator=(Span const &source);
 		~Span(void);
+		void addNumber(int number);
+		unsigned int shortestSpan(void);
+		unsigned int longestSpan(void);
+		void randomAdding();
+		std::vector<int> &getVector();
 	private:
 		Span(void);
 		unsigned int _max;
 		std::vector<int> _span;
-		void addNumber(int number);
-		unsigned int shortestSpan(void);
-		unsigned int longestSpan(void);
 		class emptySpan : public std::exception {
 			public:
-				virtual const char *what() throw()
+				virtual const char *what() const throw()
 				{
 					return ("Span is empty");
 				}
 		};
 		class oneInSpan : public std::exception {
 			public:
-				virtual const char *what() throw()
+				virtual const char *what() const throw()
 				{
 					return ("Span only contains one value");
 				}
 		};
 		class alreadyFilled : public std::exception {
 			public:
-				virtual const char *what() throw()
+				virtual const char *what() const throw()
 				{
 					return ("Span is already filled");
 				}

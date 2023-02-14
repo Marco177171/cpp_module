@@ -1,6 +1,6 @@
 NAME = Span
 FLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
-SRCS = main.cpp Span.cpp
+SRCS = main.cpp
 OBJS = $(SRCS.cpp=.o)
 
 $(NAME):

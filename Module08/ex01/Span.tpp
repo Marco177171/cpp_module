@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:30:13 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/14 16:13:19 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/14 17:12:25 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ Span::~Span(void)
 
 void Span::addNumber(int number)
 {
+	if (this->_span.size() == this->_max)
+		throw Span::alreadyFilled();
+	this->_span.push_back(number);
 	std::cout << "addNumber called" << std::endl;
 }
 
@@ -49,7 +52,7 @@ unsigned int Span::shortestSpan(void)
 {
 	std::vector<int> copy;
 	std::vector<int>::iterator iter;
-	unsigned int result;
+	int result;
 
 	std::cout << "shortestSpan called" << std::endl;
 	if (!this->_span.size())
@@ -71,7 +74,7 @@ unsigned int Span::shortestSpan(void)
 unsigned int Span::longestSpan(void)
 {
 	std::vector<int> copy;
-	unsigned int result;
+	int result;
 
 	std::cout << "longestSpan called" << std::endl;
 	if (!this->_span.size())
@@ -81,4 +84,22 @@ unsigned int Span::longestSpan(void)
 	copy = this->_span;
 	result = *(copy.end() - 1) - *copy.begin();
 	return (result);
+}
+
+void Span::randomAdding()
+{
+	std::vector<int> temp;
+	
+	temp.reserve(1000000);
+	srand(unsigned (time(NULL)));
+	for (int i = 0; i < 1000000; i++)
+		temp.push_back(rand() % 1000000);
+	if (this->_span.size() + std::distance(temp.begin(), temp.end()) > this->_max)
+		throw Span::alreadyFilled();
+	this->_span.insert(this->_span.begin(), temp.begin(), temp.end());
+}
+
+std::vector<int> &Span::getVector()
+{
+	return (this->_span);
 }
