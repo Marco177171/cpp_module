@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:30:07 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/14 17:21:00 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/14 17:29:27 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ int main(void)
 	Span newSpan = span;
 	std::cout << span.getVector().at(0) << std::endl;
 	std::cout << *(span.getVector().begin()) << std::endl;
-	std::cout << *(span.getVector().end()) << std::endl;
+	std::cout << *(span.getVector().begin()) << std::endl;
 	span.getVector().at(0) = 0;
 	std::cout << *span.getVector().begin() << std::endl;
 	std::cout << *newSpan.getVector().begin() << std::endl;
-	std::cout << *span.getVector().end() << std::endl;
-	std::cout << *newSpan.getVector().end() << std::endl;
+	std::cout << span.getVector().size() << std::endl;
+	std::cout << newSpan.getVector().size() << std::endl;
 	newSpan.getVector().push_back(150);
 	std::cout << newSpan.getVector().size() << std::endl;
 	try
