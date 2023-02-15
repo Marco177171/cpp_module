@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:30:13 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/15 16:43:32 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/15 17:25:00 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void Span::addNumber(int number)
 	if (this->_span.size() == this->_max)
 		throw Span::alreadyFilled();
 	this->_span.push_back(number);
-	std::cout << "addNumber called" << std::endl;
 }
 
 unsigned int Span::shortestSpan(void)
@@ -61,6 +60,7 @@ unsigned int Span::shortestSpan(void)
 	else if (this->_span.size() == 1)
 		throw Span::oneInSpan();
 	copy = this->_span;
+	std::sort(copy.begin(), copy.end());
 	iter = copy.begin();
 	result = *(copy.end() - 1) - *copy.begin();
 	iter++;
@@ -83,6 +83,7 @@ unsigned int Span::longestSpan(void)
 	else if (this->_span.size() == 1)
 		throw Span::oneInSpan();
 	copy = this->_span;
+	std::sort(copy.begin(), copy.end());
 	result = *(copy.end() - 1) - *copy.begin();
 	return (result);
 }
