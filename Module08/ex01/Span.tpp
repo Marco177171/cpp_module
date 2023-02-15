@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:30:13 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/14 17:12:25 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/15 16:43:32 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,14 @@ Span::Span(unsigned int max) : _max(max)
 Span::Span(Span const &source) : _max(source._max)
 {
 	this->_span.reserve(this->_max);
+	this->_span = source._span;
 }
 
 Span &Span::operator=(Span const &source)
 {
 	this->_max = source._max;
 	this->_span.reserve(this->_max);
+	this->_span = source._span;
 	std::cout << "Span operator overload constructor called" << std::endl;
 	return (*this);
 }
@@ -54,13 +56,13 @@ unsigned int Span::shortestSpan(void)
 	std::vector<int>::iterator iter;
 	int result;
 
-	std::cout << "shortestSpan called" << std::endl;
 	if (!this->_span.size())
 		throw Span::emptySpan();
 	else if (this->_span.size() == 1)
 		throw Span::oneInSpan();
 	copy = this->_span;
-	result = copy.end() - copy.begin() - 1;
+	iter = copy.begin();
+	result = *(copy.end() - 1) - *copy.begin();
 	iter++;
 	while (iter != copy.end())
 	{
@@ -76,7 +78,6 @@ unsigned int Span::longestSpan(void)
 	std::vector<int> copy;
 	int result;
 
-	std::cout << "longestSpan called" << std::endl;
 	if (!this->_span.size())
 		throw Span::emptySpan();
 	else if (this->_span.size() == 1)

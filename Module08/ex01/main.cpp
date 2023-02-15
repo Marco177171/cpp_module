@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:30:07 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/14 17:29:27 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/15 16:39:21 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,48 +17,49 @@ int main(void)
 	Span span(10);
 
 	span.addNumber(2);
-	Span newSpan = span;
-	std::cout << span.getVector().at(0) << std::endl;
+	Span copy = span;
+	std::cout << "here" << std::endl;
+	std::cout << copy.getVector().at(0) << std::endl;
+	std::cout << *(copy.getVector().begin()) << std::endl;
 	std::cout << *(span.getVector().begin()) << std::endl;
-	std::cout << *(span.getVector().begin()) << std::endl;
-	span.getVector().at(0) = 0;
+	copy.getVector().at(0) = 0;
+	std::cout << *copy.getVector().begin() << std::endl;
 	std::cout << *span.getVector().begin() << std::endl;
-	std::cout << *newSpan.getVector().begin() << std::endl;
+	std::cout << copy.getVector().size() << std::endl;
 	std::cout << span.getVector().size() << std::endl;
-	std::cout << newSpan.getVector().size() << std::endl;
-	newSpan.getVector().push_back(150);
-	std::cout << newSpan.getVector().size() << std::endl;
+	span.getVector().push_back(150);
+	std::cout << span.getVector().size() << std::endl;
 	try
 	{
-		newSpan.addNumber(42);
-		newSpan.addNumber(24);
-		newSpan.addNumber(17);
-		newSpan.addNumber(38);
-		newSpan.addNumber(122);
-		newSpan.addNumber(77);
-		newSpan.addNumber(96);
-		newSpan.addNumber(68);
+		span.addNumber(42);
+		span.addNumber(24);
+		span.addNumber(17);
+		span.addNumber(38);
+		span.addNumber(122);
+		span.addNumber(77);
+		span.addNumber(96);
+		span.addNumber(68);
 		// not inserted //
-		newSpan.addNumber(81);
-		newSpan.addNumber(83);
+		span.addNumber(81);
+		span.addNumber(83);
 	}
-	catch(const std::exception& e)
+	catch (std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
-	std::cout << "Shortest span: " << span.shortestSpan() << std::endl;
-	std::cout << "Longest span: " << span.longestSpan() << std::endl;
+	std::cout << "Shortest Span in span is " << span.shortestSpan() << std::endl;
+	std::cout << "Longest Span in span is " << span.longestSpan() << std::endl;
 	try
 	{
-		std::cout << "newSpan shortest: " << newSpan.shortestSpan() << std::endl;
+		std::cout << "Longest Span in copy is " << copy.longestSpan() << std::endl;
 	}
-	catch(const std::exception& e)
+	catch (std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 	Span crazy(1000000);
 	crazy.randomAdding();
-	std::cout << "Shortest span in crazy: " << crazy.shortestSpan() << std::endl;
-	std::cout << "Longest span in crazy: " << crazy.longestSpan() << std::endl;
+	std::cout << "Shortest Span in crazy is " << crazy.shortestSpan() << std::endl;
+	std::cout << "Longest Span in crazy is " << crazy.longestSpan() << std::endl;
 	return (0);
 }
