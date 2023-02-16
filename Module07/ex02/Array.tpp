@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 13:50:46 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/13 17:50:39 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/16 09:12:06 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ template <typename T>
 Array<T>::~Array(void)
 {
 	if (this->_array)
-		delete[] this->_array;
+		delete [] this->_array;
 	std::cout << "Destructor called" << std::endl;
 }
 
