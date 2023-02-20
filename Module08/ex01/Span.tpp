@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:30:13 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/15 17:25:00 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/16 17:08:53 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,6 @@ unsigned int Span::shortestSpan(void)
 	iter = copy.begin();
 	result = *(copy.end() - 1) - *copy.begin();
 	iter++;
-	while (iter != copy.end())
-	{
-		if (*iter - *(iter - 1) < result)
-			result = *iter - *(iter - 1);
-		iter++;
-	}
 	return (result);
 }
 

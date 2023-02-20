@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:48:08 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/24 18:17:24 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/16 16:30:25 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,14 @@ ScavTrap &ScavTrap::operator=(ScavTrap const &source)
 ScavTrap::~ScavTrap()
 {
 	std::cout << "ScavTrap destructor called" << std::endl;
+}
+
+void ScavTrap::attack(std::string &target)
+{
+	if (this->_energy <= 0 || this->_hitPoints <= 0)
+		return ;
+	this->_energy--;
+	std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
 }
 
 void ScavTrap::guardGate(void)

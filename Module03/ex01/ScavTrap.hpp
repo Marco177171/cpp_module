@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:48:14 by masebast          #+#    #+#             */
-/*   Updated: 2023/01/24 18:46:36 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/16 16:19:44 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class ScavTrap : public ClapTrap {
 		ScavTrap &operator=(ScavTrap const &source);
 		~ScavTrap();
 		void guardGate();
+		void attack(std::string &target);
 };
 
 #endif
