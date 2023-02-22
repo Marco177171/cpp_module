@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:30:13 by masebast          #+#    #+#             */
-/*   Updated: 2023/02/16 17:08:53 by masebast         ###   ########.fr       */
+/*   Updated: 2023/02/22 17:25:46 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ unsigned int Span::shortestSpan(void)
 {
 	std::vector<int> copy;
 	std::vector<int>::iterator iter;
+	std::vector<int>::iterator tmp;
 	int result;
 
 	if (!this->_span.size())
@@ -61,9 +62,15 @@ unsigned int Span::shortestSpan(void)
 		throw Span::oneInSpan();
 	copy = this->_span;
 	std::sort(copy.begin(), copy.end());
-	iter = copy.begin();
 	result = *(copy.end() - 1) - *copy.begin();
+	iter = copy.begin();
 	iter++;
+	while (iter != copy.end())
+	{
+		if (*iter - *(iter - 1) < result)
+			result = *iter - *(iter - 1);
+		iter++;
+	}
 	return (result);
 }
 
