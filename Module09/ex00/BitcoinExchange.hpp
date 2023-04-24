@@ -3,15 +3,14 @@
 
 #include <iostream>
 
-class btc
-{
-	private:
-		/* data */
+class btc {
 	public:
 		btc(void);
-		btc(btc source);
-		btc(void);
+		btc(const btc &src);
+		btc &operator=(const btc &src);
 		~btc();
+	private:
+		/* data */
 };
 
 #endif
