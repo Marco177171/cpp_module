@@ -2,6 +2,8 @@
 # define BTC_HPP
 
 #include <iostream>
+#include <algorithm>
+#include <string.h>
 
 class btc {
 	public:
