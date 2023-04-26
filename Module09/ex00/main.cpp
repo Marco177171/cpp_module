@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 12:10:19 by masebast          #+#    #+#             */
-/*   Updated: 2023/04/26 16:09:19 by masebast         ###   ########.fr       */
+/*   Updated: 2023/04/26 17:29:41 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,11 @@ int ft_error(std::string error)
 	return (1);
 }
 
-int check_data(btc *BitExchange, char const *data)
+int fillDataMap(btc *BitExchange, char const *data)
 {
 	std::ifstream file(data);
-	std::string line;
-	std::string date;
-	double value;
-
+	std::string line, date, value;
+	
 	if (!file)
 		return (ft_error("ERROR: issues opening file."));
 	if (getline(file, line, '\n') && !line.compare("date,exchange_rate") && line.length() == 18)
@@ -35,9 +33,10 @@ int check_data(btc *BitExchange, char const *data)
 				return (ft_error("ERROR: bad character found in data.csv"));
 			else
 			{
-				date = line.find_first_not_of("0123456789-");
-				value = line.find_first_of(",");
-				BitExchange->map_data.insert(date, value);
+				std::string::size_type pos = line.find(',');
+				date = line.substr(0, pos);
+				value = line.substr(pos + 1);
+				BitExchange->map_data.insert(std::pair<std::string, std::string>(date, value));
 			}
 		}
 	}
@@ -46,16 +45,49 @@ int check_data(btc *BitExchange, char const *data)
 		file.close();
 		return (ft_error("ERROR: file content corrupt."));
 	}
+	file.close();
 	return (0);
+}
+
+int fillInputMap(std::string arg, std::map<std::string, std::string> *inputMap)
+{
+	std::ifstream input(arg);
+	std::string line, date, value;
+	
+	if (!input)
+		return (ft_error("ERROR: issues opening input file."));
+	if (getline(input, line, '\n') && !line.compare("date | value") && line.length() == 12)
+	{
+		while (getline(input, line, '\n'))
+		{
+			if (line.find_last_not_of("0123456789|-. ") != std::string::npos)
+				return (ft_error("ERROR: bad character found in input"));
+			else
+			{
+				std::string::size_type pos = line.find(' ');
+				date = line.substr(0, pos);
+				value = line.substr(pos + 3);
+				inputMap->insert(std::pair<std::string, std::string>(date, value));
+			}
+		}
+	}
+	else
+	{
+		input.close();
+		return (ft_error("ERROR: input content corrupt."));
+	}
+	input.close();
+	return (0);	
 }
 
 int main(int argc, char *argv[])
 {
-	btc *BitExchange;
-	(void)argv;
+	btc BitExchange;
+	std::map<std::string, std::string> inputMap;
 
 	if (argc != 2)
 		return (ft_error("ERROR: the program could not open file."));
-	check_data(BitExchange, "./data.csv");
+	fillDataMap(&BitExchange, "./data.csv");
+	fillInputMap(argv[1], &inputMap);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 12:10:30 by masebast          #+#    #+#             */
-/*   Updated: 2023/04/26 15:58:23 by masebast         ###   ########.fr       */
+/*   Updated: 2023/04/26 16:52:02 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class btc {
 		btc(const btc &src);
 		// btc &operator=(const btc &src);
 		~btc();
-		std::map<std::string, double> map_data;
+		std::map<std::string, std::string> map_data;
 	protected:
 };
 
