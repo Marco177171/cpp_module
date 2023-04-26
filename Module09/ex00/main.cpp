@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 12:10:19 by masebast          #+#    #+#             */
-/*   Updated: 2023/04/26 17:29:41 by masebast         ###   ########.fr       */
+/*   Updated: 2023/04/26 19:58:28 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,11 @@ int fillInputMap(std::string arg, std::map<std::string, std::string> *inputMap)
 				return (ft_error("ERROR: bad character found in input"));
 			else
 			{
+				// KEEP CHECKING HERE!!!
 				std::string::size_type pos = line.find(' ');
 				date = line.substr(0, pos);
+				if (line.c_str()[pos] == '\0' || line.c_str()[pos] == '\n')
+					return (1);
 				value = line.substr(pos + 3);
 				inputMap->insert(std::pair<std::string, std::string>(date, value));
 			}
@@ -80,6 +83,51 @@ int fillInputMap(std::string arg, std::map<std::string, std::string> *inputMap)
 	return (0);	
 }
 
+int checkDoubles(double inputDouble)
+{
+	if (inputDouble > 1000)
+	{
+		std::cerr << "ERROR: too large a number." << std::endl;
+		return (1);
+	}
+	else if (inputDouble < 0)
+	{
+		std::cerr << "ERROR: not a positive number." << std::endl;
+		return (1);
+	}
+	return (0);
+}
+
+int result(btc *BitExchange, std::map<std::string, std::string> *inputMap)
+{
+	std::map<std::string, std::string>::iterator bitIter = BitExchange->map_data.begin();
+	std::map<std::string, std::string>::iterator inputIter = inputMap->begin();
+	double bitDouble, inputDouble;
+	int check;
+
+	check = 0;
+	while (inputIter != inputMap->end())
+	{
+		bitIter = BitExchange->map_data.begin();
+		while (bitIter != BitExchange->map_data.end())
+		{
+			if (inputIter->first.compare(bitIter->first))
+			{
+				// KEEP CHECKING HERE!!!
+				bitDouble = std::strtod(bitIter->second.c_str(), NULL);
+				inputDouble = std::strtod(inputIter->second.c_str(), NULL);
+				check = checkDoubles(inputDouble);
+				if (check == 0)
+					std::cout << inputIter->first << " => " << inputIter->second << " => " << bitDouble * inputDouble << std::endl;
+				break;
+			}
+			bitIter++;
+		}
+		inputIter++;
+	}
+	return (0);
+}
+
 int main(int argc, char *argv[])
 {
 	btc BitExchange;
@@ -87,7 +135,9 @@ int main(int argc, char *argv[])
 
 	if (argc != 2)
 		return (ft_error("ERROR: the program could not open file."));
-	fillDataMap(&BitExchange, "./data.csv");
+	if (fillDataMap(&BitExchange, "./data.csv"))
+		return (1);
 	fillInputMap(argv[1], &inputMap);
+	result(&BitExchange, &inputMap);
 	return (0);
 }
