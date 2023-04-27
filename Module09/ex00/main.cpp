@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 12:10:19 by masebast          #+#    #+#             */
-/*   Updated: 2023/04/26 19:58:28 by masebast         ###   ########.fr       */
+/*   Updated: 2023/04/27 16:04:24 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,16 @@ int fillInputMap(std::string arg, std::map<std::string, std::string> *inputMap)
 			{
 				// KEEP CHECKING HERE!!!
 				std::string::size_type pos = line.find(' ');
-				date = line.substr(0, pos);
-				if (line.c_str()[pos] == '\0' || line.c_str()[pos] == '\n')
-					return (1);
-				value = line.substr(pos + 3);
+				date = line.substr(0, pos); // left side (date)
+				if (line.substr(pos + 1).c_str()[0] != '\0' && line.substr(pos + 1).c_str()[0] != '\n')
+				{
+					if (line.substr(pos + 1).find_last_not_of("0123456789|-. ") != std::string::npos)
+						return (ft_error("ERROR: bad character found in input"));
+					else
+						value = line.substr(pos + 3); // right side (value)
+				}
+				else
+					std::cerr << "ERROR: bad input => " << date << std::endl;
 				inputMap->insert(std::pair<std::string, std::string>(date, value));
 			}
 		}
@@ -111,14 +117,23 @@ int result(btc *BitExchange, std::map<std::string, std::string> *inputMap)
 		bitIter = BitExchange->map_data.begin();
 		while (bitIter != BitExchange->map_data.end())
 		{
-			if (inputIter->first.compare(bitIter->first))
+			if (!inputIter->first.compare(bitIter->first) || inputIter->first.compare(bitIter->first) < 0)
 			{
+				if (inputIter->first.compare(bitIter->first) < 0)
+				{
+					bitIter--;
+					bitDouble = std::strtod(bitIter->second.c_str(), NULL);
+					inputDouble = std::strtod(inputIter->second.c_str(), NULL);
+				}
 				// KEEP CHECKING HERE!!!
-				bitDouble = std::strtod(bitIter->second.c_str(), NULL);
-				inputDouble = std::strtod(inputIter->second.c_str(), NULL);
+				else
+				{
+					bitDouble = std::strtod(bitIter->second.c_str(), NULL);
+					inputDouble = std::strtod(inputIter->second.c_str(), NULL);
+				}
 				check = checkDoubles(inputDouble);
 				if (check == 0)
-					std::cout << inputIter->first << " => " << inputIter->second << " => " << bitDouble * inputDouble << std::endl;
+					std::cout << inputIter->first << " => " << inputIter->second << " => " << bitDouble << std::endl;
 				break;
 			}
 			bitIter++;
