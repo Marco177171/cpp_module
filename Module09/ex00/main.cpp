@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 12:10:19 by masebast          #+#    #+#             */
-/*   Updated: 2023/04/27 16:04:24 by masebast         ###   ########.fr       */
+/*   Updated: 2023/04/27 16:07:35 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ int result(btc *BitExchange, std::map<std::string, std::string> *inputMap)
 				}
 				check = checkDoubles(inputDouble);
 				if (check == 0)
-					std::cout << inputIter->first << " => " << inputIter->second << " => " << bitDouble << std::endl;
+					std::cout << inputIter->first << " => " << inputIter->second << " => " << bitDouble * inputDouble << std::endl;
 				break;
 			}
 			bitIter++;
