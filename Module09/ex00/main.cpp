@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 12:10:19 by masebast          #+#    #+#             */
-/*   Updated: 2023/04/27 16:07:35 by masebast         ###   ########.fr       */
+/*   Updated: 2023/04/27 17:38:04 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int fillDataMap(btc *BitExchange, char const *data)
 	return (0);
 }
 
-int fillInputMap(std::string arg, std::map<std::string, std::string> *inputMap)
+int fillInputMap(std::string arg, std::multimap<std::string, std::string> *inputMap)
 {
 	std::ifstream input(arg);
 	std::string line, date, value;
@@ -68,12 +68,7 @@ int fillInputMap(std::string arg, std::map<std::string, std::string> *inputMap)
 				std::string::size_type pos = line.find(' ');
 				date = line.substr(0, pos); // left side (date)
 				if (line.substr(pos + 1).c_str()[0] != '\0' && line.substr(pos + 1).c_str()[0] != '\n')
-				{
-					if (line.substr(pos + 1).find_last_not_of("0123456789|-. ") != std::string::npos)
-						return (ft_error("ERROR: bad character found in input"));
-					else
-						value = line.substr(pos + 3); // right side (value)
-				}
+					value = line.substr(pos + 3); // right side (value)
 				else
 					std::cerr << "ERROR: bad input => " << date << std::endl;
 				inputMap->insert(std::pair<std::string, std::string>(date, value));
@@ -104,10 +99,10 @@ int checkDoubles(double inputDouble)
 	return (0);
 }
 
-int result(btc *BitExchange, std::map<std::string, std::string> *inputMap)
+int result(btc *BitExchange, std::multimap<std::string, std::string> *inputMap)
 {
-	std::map<std::string, std::string>::iterator bitIter = BitExchange->map_data.begin();
-	std::map<std::string, std::string>::iterator inputIter = inputMap->begin();
+	std::multimap<std::string, std::string>::iterator bitIter = BitExchange->map_data.begin();
+	std::multimap<std::string, std::string>::iterator inputIter = inputMap->begin();
 	double bitDouble, inputDouble;
 	int check;
 
@@ -146,7 +141,7 @@ int result(btc *BitExchange, std::map<std::string, std::string> *inputMap)
 int main(int argc, char *argv[])
 {
 	btc BitExchange;
-	std::map<std::string, std::string> inputMap;
+	std::multimap<std::string, std::string> inputMap;
 
 	if (argc != 2)
 		return (ft_error("ERROR: the program could not open file."));
