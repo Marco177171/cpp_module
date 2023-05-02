@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 18:05:33 by masebast          #+#    #+#             */
-/*   Updated: 2023/05/02 16:32:40 by masebast         ###   ########.fr       */
+/*   Updated: 2023/05/02 19:22:29 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,59 +39,30 @@ int ft_check(char *argv[])
 	return (0);
 }
 
-int fillList(std::list<int> *mergeTarget, char *argv[])
-{
-	int index;
-
-	index = 0;
-	std::cout << "Before: ";
-	while (argv[index])
-	{
-		std::cout << argv[index] << " ";
-		mergeTarget->push_back(std::atoi(argv[index]));
-		index++;
-	}
-	std::cout << std::endl;
-	return (0);
-}
-
-int sortAndMerge(std::list<int> *mergeTarget)
-{
-	mergeTarget->sort();
-	mergeTarget->unique();
-	return (0);
-}
-
-int printResult(std::list<int> *mergeTarget)
-{
-	std::list<int>::iterator iter;
-
-	iter = mergeTarget->begin();
-	std::cout << "After: ";
-	while (iter != mergeTarget->end())
-	{
-		std::cout << *iter << " ";
-		iter++;
-	}
-	std::cout << std::endl;
-	return (0);
-}
-
 int main(int argc, char *argv[])
 {
-	std::list<int> mergeTarget;
-	std::chrono::high_resolution_clock::time_point start1, end1, start2, end2;
+	std::list<int> mergeTargetList;
+	std::vector<int> mergeTargetVector;
+	std::clock_t start1, end1, start2, end2;
 
 	if (argc < 2)
 		return (ft_error("ERROR: no arguments"));
 	argv = &argv[1];
 	if (ft_check(argv))
 		return (ft_error("ERROR: all arguments must be positive integers"));
-	start1 = std::chrono::high_resolution_clock::now();
-	fillList(&mergeTarget, argv);
-	sortAndMerge(&mergeTarget);
-	printResult(&mergeTarget);
-	end1 = std::chrono::high_resolution_clock::now();
-	std::cout << "Time to process a range of " << argc - 1 << " Elements with std::list : " << std::endl;
+	// LIST
+	start1 = std::clock();
+	fillList(&mergeTargetList, argv);
+	sortAndMergeList(&mergeTargetList);
+	printListResult(&mergeTargetList);
+	end1 = std::clock();
+	// VECTOR
+	start2 = std::clock();
+	fillVector(&mergeTargetVector, argv);
+	sortAndMergeVector(&mergeTargetVector);
+	printVectorResult(&mergeTargetVector);
+	end2 = std::clock();
+	std::cout << "Time to process a range of " << argc - 1 << " Elements with std::list : " << static_cast<double>(end1 - start1) << std::endl;
+	std::cout << "Time to process a range of " << argc - 1 << " Elements with std::vector : " << static_cast<double>(end2 - start2) << std::endl;
 	return (0);
 }
