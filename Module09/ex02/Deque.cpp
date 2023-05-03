@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   List.cpp                                           :+:      :+:    :+:   */
+/*   Deque.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:04:50 by masebast          #+#    #+#             */
-/*   Updated: 2023/05/03 18:32:35 by masebast         ###   ########.fr       */
+/*   Updated: 2023/05/03 19:16:29 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-int fillList(std::list<int> *mergeTarget, char *argv[])
+int fillDdeque(std::deque<int> *mergeTarget, char *argv[])
 {
 	int index;
 
@@ -28,13 +28,15 @@ int fillList(std::list<int> *mergeTarget, char *argv[])
 	return (0);
 }
 
-int myMerge(std::list<int> *mergeTarget, int begin, int end)
+int myMerge(std::deque<int> *mergeTarget, int begin, int end)
 {
-	// keep working here!
+	std::deque<int> left;
+	std::deque<int> right;
+	
 	return (0);
 }
 
-int mySort(std::list<int> *mergeTarget, int begin, int end)
+int mySort(std::deque<int> *mergeTarget, int begin, int end)
 {
 	int average = (end + begin) / 2;
 
@@ -51,7 +53,7 @@ int mySort(std::list<int> *mergeTarget, int begin, int end)
 	return (0);
 }
 
-int sortAndMergeList(std::list<int> *mergeTarget)
+int sortAndMergeDeque(std::deque<int> *mergeTarget)
 {
 	int begin, end;
 
@@ -63,12 +65,12 @@ int sortAndMergeList(std::list<int> *mergeTarget)
 	return (0);
 }
 
-int printListResult(std::list<int> *mergeTarget)
+int printDequeResult(std::deque<int> *mergeTarget)
 {
-	std::list<int>::iterator iter;
+	std::deque<int>::iterator iter;
 
 	iter = mergeTarget->begin();
-	std::cout << "After (list) : ";
+	std::cout << "After (deque) : ";
 	while (iter != mergeTarget->end())
 	{
 		std::cout << *iter << " ";

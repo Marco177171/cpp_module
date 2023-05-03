@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 18:05:33 by masebast          #+#    #+#             */
-/*   Updated: 2023/05/03 14:20:18 by masebast         ###   ########.fr       */
+/*   Updated: 2023/05/03 19:12:21 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int ft_check(char *argv[])
 
 int main(int argc, char *argv[])
 {
-	std::list<int> mergeTargetList;
+	std::deque<int> mergeTargetdeque;
 	std::vector<int> mergeTargetVector;
 	std::clock_t start1, end1, start2, end2;
 
@@ -50,11 +50,11 @@ int main(int argc, char *argv[])
 	argv = &argv[1];
 	if (ft_check(argv))
 		return (ft_error("ERROR: all arguments must be positive integers"));
-	// LIST
+	// deque
 	start1 = std::clock();
-	fillList(&mergeTargetList, argv);
-	sortAndMergeList(&mergeTargetList);
-	printListResult(&mergeTargetList);
+	fillDeque(&mergeTargetdeque, argv);
+	sortAndMergeDeque(&mergeTargetdeque);
+	printDequeResult(&mergeTargetdeque);
 	end1 = std::clock();
 	// VECTOR
 	start2 = std::clock();
@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
 	sortAndMergeVector(&mergeTargetVector);
 	printVectorResult(&mergeTargetVector);
 	end2 = std::clock();
-	std::cout << "Time to process a range of " << argc - 1 << " Elements with std::list : " << static_cast<double>(end1 - start1) << std::endl;
+	std::cout << "Time to process a range of " << argc - 1 << " Elements with std::deque : " << static_cast<double>(end1 - start1) << std::endl;
 	std::cout << "Time to process a range of " << argc - 1 << " Elements with std::vector : " << static_cast<double>(end2 - start2) << std::endl;
 	return (0);
 }
