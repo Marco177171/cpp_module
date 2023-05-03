@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:04:50 by masebast          #+#    #+#             */
-/*   Updated: 2023/05/03 21:07:38 by masebast         ###   ########.fr       */
+/*   Updated: 2023/05/03 21:28:33 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,27 +34,23 @@ int myMerge(std::deque<int> *mergeTarget, int begin, int end)
 	std::deque<int>::iterator iter1;
 	std::deque<int>::iterator iter2;
 
-	std::cout << "here" << std::endl;
+	// BELOW: error! We need the iterator at 'begin' position, not the beginning of the deque
+	
 	while (begin < end)
 	{
-		std::cout << "in while: begin = " << begin << std::endl;
 		index = begin + 1;
 		while (index < end)
 		{
-			std::cout << "in check: index = " << index << std::endl;
 			if (mergeTarget->at(index) < mergeTarget->at(begin))
 			{
-				std::cout << "swapping" << std::endl;
 				iter1 = mergeTarget->begin();
-				iter1 += begin;
 				iter2 = mergeTarget->begin();
-				iter2 += index;
-				std::cout << "iters increased" << std::endl;
+				std::advance(iter1, index);
+				std::advance(iter2, begin);
 				tmp = mergeTarget->at(index);
-				std::cout << "tmp = " << tmp << std::endl;
 				mergeTarget->insert(iter1, mergeTarget->at(begin));
-				mergeTarget->insert(iter2, tmp);
-				std::cout << "done" << std::endl;
+				mergeTarget->insert(iter2, tmp); // ERROR HERE!!!
+				std::cout << "here merging" << std::endl;
 				break;
 			}
 			index++;
