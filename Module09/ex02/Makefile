@@ -1,6 +1,6 @@
 NAME = PmergeMe
 FLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = main.cpp List.cpp Vector.cpp
+SRCS = main.cpp Deque.cpp Vector.cpp
 OBJS = $(SRCS.cpp=.o)
 
 $(NAME):
