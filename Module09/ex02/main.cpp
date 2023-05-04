@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 18:05:33 by masebast          #+#    #+#             */
-/*   Updated: 2023/05/03 19:12:21 by masebast         ###   ########.fr       */
+/*   Updated: 2023/05/04 12:35:34 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,12 @@ int ft_check(char *argv[])
 
 int main(int argc, char *argv[])
 {
-	std::deque<int> mergeTargetdeque;
+	std::deque<int> mergeTargetDeque;
+	std::deque<int>::iterator dequeBegin;
+	std::deque<int>::iterator dequeEnd;
 	std::vector<int> mergeTargetVector;
+	std::vector<int>::iterator vectorBegin;
+	std::vector<int>::iterator vectorEnd;
 	std::clock_t start1, end1, start2, end2;
 
 	if (argc < 2)
@@ -50,19 +54,23 @@ int main(int argc, char *argv[])
 	argv = &argv[1];
 	if (ft_check(argv))
 		return (ft_error("ERROR: all arguments must be positive integers"));
-	// deque
+	// DEQUE
 	start1 = std::clock();
-	fillDeque(&mergeTargetdeque, argv);
-	sortAndMergeDeque(&mergeTargetdeque);
-	printDequeResult(&mergeTargetdeque);
+	fillDeque(&mergeTargetDeque, argv);
+	dequeBegin = mergeTargetDeque.begin();
+	dequeEnd = mergeTargetDeque.end();
+	mergeInsertSortDeque(dequeBegin, dequeEnd);
+	printDequeResult(&mergeTargetDeque);
 	end1 = std::clock();
 	// VECTOR
 	start2 = std::clock();
 	fillVector(&mergeTargetVector, argv);
-	sortAndMergeVector(&mergeTargetVector);
+	vectorBegin = mergeTargetVector.begin();
+	vectorEnd = mergeTargetVector.end();
+	mergeInsertSortVector(vectorBegin, vectorEnd);
 	printVectorResult(&mergeTargetVector);
 	end2 = std::clock();
-	std::cout << "Time to process a range of " << argc - 1 << " Elements with std::deque : " << static_cast<double>(end1 - start1) << std::endl;
-	std::cout << "Time to process a range of " << argc - 1 << " Elements with std::vector : " << static_cast<double>(end2 - start2) << std::endl;
+	std::cout << "Time to process a range of " << argc - 1 << " Elements with std::deque : " << static_cast<double>(end1 - start1) / CLOCKS_PER_SEC << std::endl;
+	std::cout << "Time to process a range of " << argc - 1 << " Elements with std::vector : " << static_cast<double>(end2 - start2) / CLOCKS_PER_SEC << std::endl;
 	return (0);
 }

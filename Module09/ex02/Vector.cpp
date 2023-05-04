@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:05:11 by masebast          #+#    #+#             */
-/*   Updated: 2023/05/02 19:20:15 by masebast         ###   ########.fr       */
+/*   Updated: 2023/05/04 12:32:42 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,39 @@ int fillVector(std::vector<int> *mergeTargetVector, char *argv[])
 	return (0);
 }
 
-int sortAndMergeVector(std::vector<int> *mergeTargetVector)
+int insertionSortVector(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
-	(void)mergeTargetVector;
-	std::cout << "sorting vector" << std::endl;
+	std::vector<int>::iterator i;
+	std::vector<int>::iterator j;
+	
+	i = begin;
+	while (i != end)
+	{
+		j = i;
+		while (j != begin && *j < *(std::prev(j)))
+		{
+			std::iter_swap(j, std::prev(j));
+			j--;
+		}
+		i++;
+	}
+	return (0);
+}
+
+int mergeInsertSortVector(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+	std::vector<int>::iterator middle;
+
+	if (std::distance(begin, end) <= 10)
+		insertionSortVector(begin, end);
+	else
+	{
+		middle = begin;
+		std::advance(middle, std::distance(begin, end) / 2);
+		mergeInsertSortVector(begin, middle);
+		mergeInsertSortVector(middle, end);
+		std::inplace_merge(begin, middle, end);
+	}
 	return (0);
 }
 

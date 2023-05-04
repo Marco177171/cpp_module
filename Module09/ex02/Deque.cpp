@@ -6,7 +6,7 @@
 /*   By: masebast <masebast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:04:50 by masebast          #+#    #+#             */
-/*   Updated: 2023/05/03 21:28:33 by masebast         ###   ########.fr       */
+/*   Updated: 2023/05/04 12:42:00 by masebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,60 +28,39 @@ int fillDeque(std::deque<int> *mergeTarget, char *argv[])
 	return (0);
 }
 
-int myMerge(std::deque<int> *mergeTarget, int begin, int end)
+int insertionSortDeque(std::deque<int>::iterator begin, std::deque<int>::iterator end)
 {
-	int index, tmp;
-	std::deque<int>::iterator iter1;
-	std::deque<int>::iterator iter2;
-
-	// BELOW: error! We need the iterator at 'begin' position, not the beginning of the deque
+	std::deque<int>::iterator i;
+	std::deque<int>::iterator j;
 	
-	while (begin < end)
+	i = begin;
+	while (i != end)
 	{
-		index = begin + 1;
-		while (index < end)
+		j = i;
+		while (j != begin && *j < *(std::prev(j)))
 		{
-			if (mergeTarget->at(index) < mergeTarget->at(begin))
-			{
-				iter1 = mergeTarget->begin();
-				iter2 = mergeTarget->begin();
-				std::advance(iter1, index);
-				std::advance(iter2, begin);
-				tmp = mergeTarget->at(index);
-				mergeTarget->insert(iter1, mergeTarget->at(begin));
-				mergeTarget->insert(iter2, tmp); // ERROR HERE!!!
-				std::cout << "here merging" << std::endl;
-				break;
-			}
-			index++;
+			std::iter_swap(j, std::prev(j));
+			j--;
 		}
-		begin++;
+		i++;
 	}
 	return (0);
 }
 
-int mySort(std::deque<int> *mergeTarget, int begin, int end)
+int mergeInsertSortDeque(std::deque<int>::iterator begin, std::deque<int>::iterator end)
 {
-	int average;
+	std::deque<int>::iterator middle;
 
-	if (end - begin <= 5)
-		myMerge(mergeTarget, begin, end);
+	if (std::distance(begin, end) <= 10)
+		insertionSortDeque(begin, end);
 	else
 	{
-		average = (end + begin) / 2;
-		mySort(mergeTarget, begin, average); // first chunk
-		mySort(mergeTarget, average, end); // second chunk
+		middle = begin;
+		std::advance(middle, std::distance(begin, end) / 2);
+		mergeInsertSortDeque(begin, middle);
+		mergeInsertSortDeque(middle, end);
+		std::inplace_merge(begin, middle, end);
 	}
-	return (0);
-}
-
-int sortAndMergeDeque(std::deque<int> *mergeTarget)
-{
-	int begin, end;
-
-	begin = 0;
-	end = mergeTarget->size();
-	mySort(mergeTarget, begin, end);
 	return (0);
 }
 
