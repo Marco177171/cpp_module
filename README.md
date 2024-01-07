@@ -19,7 +19,7 @@ Welcome to the C++ Modules and Exercises repository! This collection consists of
 If you have any questions, suggestions, or want to discuss this repository further, feel free to contact me:
 
 - **Email**: msebastiani93@gmail.com
-- **GitHub**: Marco177171
+- **GitHub**: https://www.github.com/Marco177171
 
 Thank you for exploring the C++ Modules and Exercises repository! I hope these exercises help you strengthen your C++ programming skills.
 
